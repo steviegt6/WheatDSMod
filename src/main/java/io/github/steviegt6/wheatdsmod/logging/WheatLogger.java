@@ -1,12 +1,12 @@
 package io.github.steviegt6.wheatdsmod.logging;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class WheatLogger {
-    public static final Logger logger = Logger.getLogger("WheatDSMod");
+    public static final Logger Logger = LogManager.getLogger("WheatDSMod");
 
     public static void QuickLogInfo(String message) {
-        logger.log(Level.INFO, message);
+        Logger.info(message);
     }
 }
