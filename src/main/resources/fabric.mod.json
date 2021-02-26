@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "io.github.steviegt6.wheatdsmod.client.WheatdsmodClient"
+      "io.github.steviegt6.wheatdsmod.client.WheatDSModClient"
     ],
     "main": [
-      "io.github.steviegt6.wheatdsmod.Wheatdsmod"
+      "io.github.steviegt6.wheatdsmod.WheatDSMod"
     ]
   },
   "mixins": [
