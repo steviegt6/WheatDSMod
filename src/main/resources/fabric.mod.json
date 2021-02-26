@@ -17,6 +17,9 @@
     "client": [
       "io.github.steviegt6.wheatdsmod.client.WheatDSModClient"
     ],
+    "server": [
+      "io.github.steviegt6.wheatdsmod.server.WheatDSModServer"
+    ],
     "main": [
       "io.github.steviegt6.wheatdsmod.WheatDSMod"
     ]

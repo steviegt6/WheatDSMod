@@ -1,0 +1,18 @@
+package io.github.steviegt6.wheatdsmod.server;
+
+import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
+import net.fabricmc.api.DedicatedServerModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
+@Environment(EnvType.SERVER)
+public class WheatDSModServer implements DedicatedServerModInitializer {
+    @Override
+    public void onInitializeServer() {
+        WheatLogger.QuickLogInfo("Initializing wheat server...");
+
+        // TODO: What goes here?
+
+        WheatLogger.QuickLogInfo("Initialized wheat server!");
+    }
+}
