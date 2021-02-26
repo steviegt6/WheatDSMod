@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "wheatdsmod",
+  "version": "${version}",
+  "name": "Wheatdsmod",
+  "description": "Wheat mod.",
+  "authors": [
+    "Steviegt6"
+  ],
+  "contact": {
+    "website": "steviegt6.github.io"
+  },
+  "license": "MIT",
+  "icon": "assets/wheatdsmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.steviegt6.wheatdsmod.client.WheatdsmodClient"
+    ],
+    "main": [
+      "io.github.steviegt6.wheatdsmod.Wheatdsmod"
+    ]
+  },
+  "mixins": [
+    "wheatdsmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.2",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
