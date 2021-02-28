@@ -1,7 +1,9 @@
 package io.github.steviegt6.wheatdsmod;
 
 import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
+import io.github.steviegt6.wheatdsmod.registry.RegistryManager;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
 
 public class WheatDSMod implements ModInitializer {
     public static final String ModID = "wheat"; // Our mod's identifier
@@ -10,7 +12,7 @@ public class WheatDSMod implements ModInitializer {
     public void onInitialize() {
         WheatLogger.QuickLogInfo("Initializing wheat...");
 
-        // TODO: Registry calls
+        RegistryManager.Load();
 
         WheatLogger.QuickLogInfo("Initialized wheat!");
     }
