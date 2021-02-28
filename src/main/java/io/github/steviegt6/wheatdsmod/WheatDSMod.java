@@ -5,7 +5,10 @@ import io.github.steviegt6.wheatdsmod.registry.RegistryManager;
 import net.fabricmc.api.ModInitializer;
 
 public class WheatDSMod implements ModInitializer {
-    public static final String ModID = "wheat"; // Our mod's identifier
+    /**
+     * The identifier of our mod.
+     */
+    public static final String ModID = "wheat";
 
     @Override
     public void onInitialize() {

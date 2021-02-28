@@ -4,6 +4,9 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.DyeableArmorItem;
 
+/**
+ * Regular DyeableArmorItem implementing IItemNameable.
+ */
 public class NamedDyeableArmorItem extends DyeableArmorItem implements IItemNameable {
     private final String _itemName;
 

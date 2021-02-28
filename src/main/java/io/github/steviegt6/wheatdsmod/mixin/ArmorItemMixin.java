@@ -20,6 +20,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
+/**
+ * Mixin that makes it so our Padded Leather armor actually has knockback resistance.
+ */
 @Mixin(ArmorItem.class)
 public class ArmorItemMixin {
     @Shadow
@@ -34,10 +37,14 @@ public class ArmorItemMixin {
 
     @Inject(
             at = @At(value = "RETURN"),
+            // <init> is the constructor of classes.
             method = "<init>"
     )
     private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo info) {
+        // Check if the material is an instance of our custom modded ArmorMaterial
+        // If it is, check if our list of WheatArmorMaterials that change armor toughness contains the material
         if (material instanceof WheatArmorMaterial && WheatArmorMaterial.ARMOR_TOUGHNESS_MATERIALS.contains(material)) {
+            // Essentially "copy" attributeModifiers, add the armor toughness, and set attributeModifiers to our "copy"
             ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
             attributeModifiers.forEach(builder::put);
             builder.put(

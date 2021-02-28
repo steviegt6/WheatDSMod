@@ -14,6 +14,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Modded ArmorMaterial enum, functionally identical to vanilla's in almost every way.
+ */
 public enum WheatArmorMaterial implements ArmorMaterial {
     PADDED_LEATHER("padded_leather",
             6,
