@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public enum WheatArmorMaterial implements ArmorMaterial {
     PADDED_LEATHER("padded_leather",
-            5,
+            6,
             new int[] {
                     1,
                     2,
