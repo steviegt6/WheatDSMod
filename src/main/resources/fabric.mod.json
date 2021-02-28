@@ -1,14 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "wheatdsmod",
+  "id": "wheat",
   "version": "${version}",
-  "name": "Wheatdsmod",
-  "description": "Wheat mod.",
+  "name": "Wheat",
+  "description": "Wheat mod. Description: TODO",
   "authors": [
     "Steviegt6"
   ],
   "contact": {
-    "website": "steviegt6.github.io"
+    "homepage": "https://github.com/Steviegt6/WheatDSMod",
+    "website": "https://github.com/Steviegt6/WheatDSMod",
+    "issues": "https://github.com/Steviegt6/WheatDSMod/issues"
   },
   "license": "MIT",
   "icon": "assets/wheatdsmod/icon.png",
@@ -31,5 +33,10 @@
     "fabricloader": ">=0.11.2",
     "fabric": "*",
     "minecraft": "1.16.5"
+  },
+  "custom": {
+    "modmenu": {
+
+    }
   }
 }
