@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -15,6 +14,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Modded ArmorMaterial enum, functionally identical to vanilla's in almost every way.
+ */
 public enum WheatArmorMaterial implements ArmorMaterial {
     PADDED_LEATHER("padded_leather",
             6,
