@@ -37,7 +37,7 @@ public class ArmorItemMixin {
             method = "<init>"
     )
     private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo info) {
-        if (material == WheatArmorMaterial.PADDED_LEATHER) {
+        if (WheatArmorMaterial.ARMOR_TOUGHNESS_MATERIALS.contains(material)) {
             ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
             attributeModifiers.forEach(builder::put);
             builder.put(

@@ -11,6 +11,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 public enum WheatArmorMaterial implements ArmorMaterial {
@@ -28,6 +30,10 @@ public enum WheatArmorMaterial implements ArmorMaterial {
             0.05f,
             () -> Ingredient.ofItems(Items.LEATHER)
     );
+
+    public static final List<WheatArmorMaterial> ARMOR_TOUGHNESS_MATERIALS = Arrays.asList(new WheatArmorMaterial[] {
+            PADDED_LEATHER
+    }.clone());
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
     private final String name;
