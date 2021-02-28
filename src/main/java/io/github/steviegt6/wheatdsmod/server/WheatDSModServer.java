@@ -9,10 +9,10 @@ import net.fabricmc.api.Environment;
 public class WheatDSModServer implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
-        WheatLogger.QuickLogInfo("Initializing wheat server...");
+        WheatLogger.quickLogInfo("Initializing wheat server...");
 
         // TODO: What goes here?
 
-        WheatLogger.QuickLogInfo("Initialized wheat server!");
+        WheatLogger.quickLogInfo("Initialized wheat server!");
     }
 }

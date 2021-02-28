@@ -8,6 +8,6 @@ import net.minecraft.util.Identifier;
  */
 public class WheatIdentifier extends Identifier {
     public WheatIdentifier(String path) {
-        super(WheatDSMod.ModID, path);
+        super(WheatDSMod.MOD_ID, path);
     }
 }

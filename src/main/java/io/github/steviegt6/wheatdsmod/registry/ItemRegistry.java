@@ -26,7 +26,7 @@ public class ItemRegistry {
     /**
      * Registers items.
      */
-    public static void Register() {
+    public static void register() {
         for (NamedDyeableArmorItem item : PADDED_WHEAT_SET) {
             Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
         }

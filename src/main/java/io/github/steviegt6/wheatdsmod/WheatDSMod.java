@@ -8,14 +8,14 @@ public class WheatDSMod implements ModInitializer {
     /**
      * The identifier of our mod.
      */
-    public static final String ModID = "wheat";
+    public static final String MOD_ID = "wheat";
 
     @Override
     public void onInitialize() {
-        WheatLogger.QuickLogInfo("Initializing wheat...");
+        WheatLogger.quickLogInfo("Initializing wheat...");
 
-        RegistryManager.Load();
+        RegistryManager.load();
 
-        WheatLogger.QuickLogInfo("Initialized wheat!");
+        WheatLogger.quickLogInfo("Initialized wheat!");
     }
 }

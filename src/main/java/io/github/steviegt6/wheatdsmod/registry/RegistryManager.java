@@ -9,11 +9,11 @@ public class RegistryManager {
     /**
      * Load registries.
      */
-    public static void Load() {
-        WheatLogger.QuickLogInfo("Registering content...");
+    public static void load() {
+        WheatLogger.quickLogInfo("Registering content...");
 
-        ItemRegistry.Register();
+        ItemRegistry.register();
 
-        WheatLogger.QuickLogInfo("Registered content!");
+        WheatLogger.quickLogInfo("Registered content!");
     }
 }

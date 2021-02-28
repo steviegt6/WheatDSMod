@@ -10,13 +10,13 @@ public class WheatLogger {
     /**
      * Instance of a log4j logger for our mod.
      */
-    public static final Logger Logger = LogManager.getLogger("WheatDSMod");
+    public static final Logger LOGGER = LogManager.getLogger("WheatDSMod");
 
     /**
      * Quickly calls our Logger's info method without the need to reference our instance.
      * @param message The message to log.
      */
-    public static void QuickLogInfo(String message) {
-        Logger.info(message);
+    public static void quickLogInfo(String message) {
+        LOGGER.info(message);
     }
 }
