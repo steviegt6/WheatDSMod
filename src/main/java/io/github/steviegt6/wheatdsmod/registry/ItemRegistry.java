@@ -31,8 +31,13 @@ public class ItemRegistry {
      * Used to automatically register crops that target different materials.
      */
     public static final Item[] CROP_TIERS = new Item[] {
+            Items.COAL,
             Items.IRON_INGOT,
-            Items.REDSTONE
+            Items.GOLD_INGOT,
+            Items.REDSTONE,
+            Items.LAPIS_LAZULI,
+            Items.DIAMOND,
+            Items.NETHERITE_SCRAP
     };
 
     /**
