@@ -13,6 +13,7 @@ public class RegistryManager {
         WheatLogger.quickLogInfo("Registering content...");
 
         ItemRegistry.register();
+        RecipeRegistry.register();
 
         WheatLogger.quickLogInfo("Registered content!");
     }
