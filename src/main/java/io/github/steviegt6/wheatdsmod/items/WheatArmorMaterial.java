@@ -75,7 +75,7 @@ public enum WheatArmorMaterial implements ArmorMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredientSupplier.get();
+        return this.repairIngredientSupplier.get();
     }
 
     @Environment(EnvType.CLIENT)
