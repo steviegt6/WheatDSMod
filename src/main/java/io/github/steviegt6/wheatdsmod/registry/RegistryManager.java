@@ -12,7 +12,10 @@ public class RegistryManager {
     public static void load() {
         WheatLogger.quickLogInfo("Registering content...");
 
-        ItemRegistry.register();
+        ItemRegistry.registerNonCrops();
+        ItemRegistry.registerCrops();
+        BlockRegistry.registerCropBlocks();
+        ItemRegistry.registerCropSeeds();
         RecipeRegistry.register();
 
         WheatLogger.quickLogInfo("Registered content!");

@@ -1,12 +1,13 @@
 package io.github.steviegt6.wheatdsmod.registry;
 
-import io.github.steviegt6.wheatdsmod.items.crops.CropType;
+import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.items.NamedDyeableArmorItem;
 import io.github.steviegt6.wheatdsmod.items.WheatArmorMaterial;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
@@ -44,35 +45,40 @@ public class ItemRegistry {
     };
 
     /**
-     * Array of crop types. Each allowed material will have all of these as variants.
-     */
-    public static final CropType[] CROP_TYPES = new CropType[] {
-            new CropType("wheat", 3),
-            new CropType("barley", 6),
-            new CropType("rye", 9)
-    };
-
-    /**
-     * A list that gets populated with all registered crop items. Used later in recipe registration.
+     * A list that gets populated with all registered crop items. Used in later content registrations.
      */
     public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<MaterialCropItem>();
 
     /**
-     * Registers items.
+     * Registers non-crop items in the mod.
      */
-    public static void register() {
+    public static void registerNonCrops() {
         for (NamedDyeableArmorItem item : PADDED_WHEAT_SET) {
             Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
         }
+    }
 
+    /**
+     * Registers all wheat crops that are allowed.
+     */
+    public static void registerCrops() {
         for (Item material : CROP_TIERS) {
             String materialName = Registry.ITEM.getId(material).getPath();
 
-            for (CropType cropType : CROP_TYPES) {
-                MaterialCropItem item = new MaterialCropItem(material, materialName + "_" + cropType.getName(), new FabricItemSettings().group(ItemGroup.MATERIALS));
-                Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
-                REGISTERED_CROPS.add(item);
-            }
+            MaterialCropItem item = new MaterialCropItem(material, materialName + "_wheat", new FabricItemSettings().group(ItemGroup.MATERIALS));
+            Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
+            REGISTERED_CROPS.add(item);
+        }
+    }
+
+    /**
+     * Automatically registers seeds for all the registered wheat crops.
+     */
+    public static void registerCropSeeds() {
+        for (MaterialCropItem item : REGISTERED_CROPS) {
+            String itemName = item.getIdentifierName();
+            MaterialCropBlock block = BlockRegistry.REGISTERED_CROP_BLOCKS.get(itemName);
+            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), new AliasedBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS)));
         }
     }
 }

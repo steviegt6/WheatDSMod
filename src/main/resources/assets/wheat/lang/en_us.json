@@ -2,5 +2,21 @@
   "item.wheat.padded_leather_helmet": "Padded Leather Cap",
   "item.wheat.padded_leather_chestplate": "Padded Leather Chestplate",
   "item.wheat.padded_leather_leggings": "Padded Leather Pants",
-  "item.wheat.padded_leather_boots": "Padded Leather Boots"
+  "item.wheat.padded_leather_boots": "Padded Leather Boots",
+
+  "item.wheat.coal_wheat": "Coal Wheat",
+  "item.wheat.iron_ingot_wheat": "Iron Wheat",
+  "item.wheat.gold_ingot_wheat": "Gold Wheat",
+  "item.wheat.redstone_wheat": "Redstone Wheat",
+  "item.wheat.lapis_lazuli_wheat": "Lapis Lazuli Wheat",
+  "item.wheat.diamond_wheat": "Diamond Wheat",
+  "item.wheat.netherite_scrap_wheat": "Netherite Scrap Wheat",
+
+  "item.wheat.coal_wheat_seeds": "Coal Wheat Seeds",
+  "item.wheat.iron_ingot_wheat_seeds": "Iron Wheat Seeds",
+  "item.wheat.gold_ingot_wheat_seeds": "Gold Wheat Seeds",
+  "item.wheat.redstone_wheat_seeds": "Redstone Wheat Seeds",
+  "item.wheat.lapis_lazuli_wheat_seeds": "Lapis Lazuli Wheat Seeds",
+  "item.wheat.diamond_wheat_seeds": "Diamond Wheat Seeds",
+  "item.wheat.netherite_scrap_wheat_seeds": "Netherite Scrap Wheat Seeds"
 }
