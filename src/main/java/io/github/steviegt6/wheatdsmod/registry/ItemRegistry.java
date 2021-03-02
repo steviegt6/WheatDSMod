@@ -12,6 +12,9 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.util.registry.Registry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Registry responsible for registering items.
  */
@@ -50,6 +53,11 @@ public class ItemRegistry {
     };
 
     /**
+     * A list that gets populated with all registered crop items. Used later in recipe registration.
+     */
+    public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<MaterialCropItem>();
+
+    /**
      * Registers items.
      */
     public static void register() {
@@ -63,6 +71,7 @@ public class ItemRegistry {
             for (CropType cropType : CROP_TYPES) {
                 MaterialCropItem item = new MaterialCropItem(material, materialName + "_" + cropType.getName(), new FabricItemSettings().group(ItemGroup.MATERIALS));
                 Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
+                REGISTERED_CROPS.add(item);
             }
         }
     }
