@@ -1,16 +1,15 @@
 package io.github.steviegt6.wheatdsmod.registry;
 
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
+import io.github.steviegt6.wheatdsmod.items.AliasedCompostableBlockItem;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.items.NamedDyeableArmorItem;
 import io.github.steviegt6.wheatdsmod.items.WheatArmorMaterial;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class ItemRegistry {
     /**
      * A list that gets populated with all registered crop items. Used in later content registrations.
      */
-    public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<MaterialCropItem>();
+    public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<>();
 
     /**
      * Registers non-crop items in the mod.
@@ -64,10 +63,11 @@ public class ItemRegistry {
     public static void registerCrops() {
         for (Item material : CROP_TIERS) {
             String materialName = Registry.ITEM.getId(material).getPath();
-
             MaterialCropItem item = new MaterialCropItem(material, materialName + "_wheat", new FabricItemSettings().group(ItemGroup.MATERIALS));
+
             Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
             REGISTERED_CROPS.add(item);
+            registerCompostableItem(item.getLevelIncreaseChance(), item);
         }
     }
 
@@ -78,7 +78,19 @@ public class ItemRegistry {
         for (MaterialCropItem item : REGISTERED_CROPS) {
             String itemName = item.getIdentifierName();
             MaterialCropBlock block = BlockRegistry.REGISTERED_CROP_BLOCKS.get(itemName);
-            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), new AliasedBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+            AliasedCompostableBlockItem newItem = new AliasedCompostableBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), newItem);
+            registerCompostableItem(newItem.getLevelIncreaseChance(), newItem);
         }
+    }
+
+    /**
+     * Registers an item's compostibility.
+     * @param levelIncreaseChance The chance that the item input will increase a composter block's level.
+     * @param item The item we want to registry to.
+     */
+    public static void registerCompostableItem(float levelIncreaseChance, ItemConvertible item) {
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), levelIncreaseChance);
     }
 }
