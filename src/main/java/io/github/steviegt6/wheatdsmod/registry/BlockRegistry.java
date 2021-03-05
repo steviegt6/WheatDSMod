@@ -10,6 +10,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.HashMap;
@@ -23,6 +24,13 @@ public class BlockRegistry {
     public static final Map<String, MaterialCropBlock> REGISTERED_CROP_BLOCKS = new HashMap<>();
 
     /**
+     * A hashmap that acts as a mapping between blocks (specifically their identifiers) and to the type of wheat they may convert vanilla wheat into.
+     * This is used during the wheat conversion process (for example, a coal block has a chance of converting vanilla wheat into coal wheat).
+     * Gets populated during crop item registering.
+     */
+    public static final Map<Identifier, MaterialCropBlock> BLOCK_CONVERTERS = new HashMap<>();
+
+    /**
      * Automatically registers all crop blocks for different types of wheat.
      */
     public static void registerCropBlocks() {
@@ -32,6 +40,8 @@ public class BlockRegistry {
             MaterialCropBlock block = new MaterialCropBlock(item, AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().nonOpaque().sounds(BlockSoundGroup.CROP));
             Registry.register(Registry.BLOCK, new WheatIdentifier(itemName + "_crop"), block);
             REGISTERED_CROP_BLOCKS.put(itemName, block);
+
+            BLOCK_CONVERTERS.put(Registry.BLOCK.getId(item.getTier().getConversionBlock()), block);
 
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }

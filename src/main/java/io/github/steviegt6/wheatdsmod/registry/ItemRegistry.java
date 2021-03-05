@@ -5,8 +5,10 @@ import io.github.steviegt6.wheatdsmod.items.AliasedCompostableBlockItem;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.items.NamedDyeableArmorItem;
 import io.github.steviegt6.wheatdsmod.items.WheatArmorMaterial;
+import io.github.steviegt6.wheatdsmod.utilities.CropTier;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -30,17 +32,17 @@ public class ItemRegistry {
     };
 
     /**
-     * Array of items/materials that can be crafted from material crops.
-     * Used to automatically register crops that target different materials.
+     * An array of CropTiers that represent the different materials this mod will target.
+     * Each element in this array will have crops autoregistered for it.
      */
-    public static final Item[] CROP_TIERS = new Item[] {
-            Items.COAL,
-            Items.IRON_INGOT,
-            Items.GOLD_INGOT,
-            Items.REDSTONE,
-            Items.LAPIS_LAZULI,
-            Items.DIAMOND,
-            Items.NETHERITE_SCRAP
+    public static final CropTier[] CROP_TIERS = new CropTier[] {
+            new CropTier(Items.COAL, Blocks.COAL_BLOCK),
+            new CropTier(Items.IRON_INGOT, Blocks.IRON_BLOCK),
+            new CropTier(Items.GOLD_INGOT, Blocks.GOLD_BLOCK),
+            new CropTier(Items.REDSTONE, Blocks.REDSTONE_BLOCK),
+            new CropTier(Items.LAPIS_LAZULI, Blocks.LAPIS_BLOCK),
+            new CropTier(Items.DIAMOND, Blocks.DIAMOND_BLOCK),
+            new CropTier(Items.NETHERITE_SCRAP, Blocks.NETHERITE_BLOCK)
     };
 
     /**
@@ -66,12 +68,13 @@ public class ItemRegistry {
      * Registers all wheat crops that are allowed.
      */
     public static void registerCrops() {
-        for (Item material : CROP_TIERS) {
-            String materialName = Registry.ITEM.getId(material).getPath();
-            MaterialCropItem item = new MaterialCropItem(material, materialName + "_wheat", new FabricItemSettings().group(ItemGroup.MATERIALS));
+        for (CropTier tier : CROP_TIERS) {
+            String materialName = Registry.ITEM.getId(tier.getMaterial()).getPath();
+            MaterialCropItem item = new MaterialCropItem(tier, materialName + "_wheat", new FabricItemSettings().group(ItemGroup.MATERIALS));
 
             Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
             REGISTERED_CROPS.add(item);
+
             registerCompostableItem(item.getLevelIncreaseChance(), item);
         }
     }

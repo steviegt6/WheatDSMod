@@ -9,7 +9,8 @@
     "GatherItemsVillagerTaskMixin",
     "ItemColorsMixin",
     "LootManagerMixin",
-    "VillagerEntityMixin"
+    "VillagerEntityMixin",
+    "CropBlockMixin"
   ],
   "client": [
   ],
