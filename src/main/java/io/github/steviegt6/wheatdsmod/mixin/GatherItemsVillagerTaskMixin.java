@@ -1,15 +1,10 @@
 package io.github.steviegt6.wheatdsmod.mixin;
 
-import com.google.common.collect.ImmutableSet;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.task.GatherItemsVillagerTask;
-import net.minecraft.entity.ai.brain.task.LookTargetUtil;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.village.VillagerProfession;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

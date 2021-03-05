@@ -1,7 +1,5 @@
 package io.github.steviegt6.wheatdsmod.mixin;
 
-import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
-import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
 import io.github.steviegt6.wheatdsmod.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

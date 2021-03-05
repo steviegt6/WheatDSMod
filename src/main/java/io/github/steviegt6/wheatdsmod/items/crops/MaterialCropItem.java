@@ -3,8 +3,6 @@ package io.github.steviegt6.wheatdsmod.items.crops;
 import io.github.steviegt6.wheatdsmod.items.Compostable;
 import io.github.steviegt6.wheatdsmod.items.NamedItem;
 import io.github.steviegt6.wheatdsmod.utilities.CropTier;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 
 public class MaterialCropItem extends NamedItem implements Compostable {
     private final CropTier tier;
