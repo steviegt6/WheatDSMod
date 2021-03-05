@@ -113,23 +113,6 @@ public class BlockRegistry {
         secondaryPoolEntries.add(secondaryPoolEntry);
 
         secondaryPoolEntry.addProperty("type", "minecraft:item");
-
-        JsonArray secondaryPoolEntryFunctions = new JsonArray();
-        secondaryPoolEntry.add("functions", secondaryPoolEntryFunctions);
-
-        JsonObject secondaryPoolEntryFunction = new JsonObject();
-        secondaryPoolEntryFunctions.add(secondaryPoolEntryFunction);
-
-        secondaryPoolEntryFunction.addProperty("function", "minecraft:apply_bonus");
-        secondaryPoolEntryFunction.addProperty("enchantment", "minecraft:fortune");
-        secondaryPoolEntryFunction.addProperty("formula", "minecraft:binomial_with_bonus_count");
-
-        JsonObject functionParameters = new JsonObject();
-        secondaryPoolEntryFunction.add("parameters", functionParameters);
-
-        functionParameters.addProperty("extra", 3);
-        functionParameters.addProperty("probability", 0.5714286);
-
         secondaryPoolEntry.addProperty("name", cropSeedsName);
 
         JsonArray secondaryPoolConditions = new JsonArray();
@@ -145,6 +128,40 @@ public class BlockRegistry {
         secondaryPoolCondition.add("properties", secondaryConditionProperties);
 
         secondaryConditionProperties.addProperty("age", "7");
+
+        JsonObject thirdPool = new JsonObject();
+        pools.add(thirdPool);
+
+        thirdPool.addProperty("rolls", 1.0);
+
+        JsonArray thirdPoolEntries = new JsonArray();
+        thirdPool.add("entries", thirdPoolEntries);
+
+        JsonObject thirdPoolEntry = new JsonObject();
+        thirdPoolEntries.add(thirdPoolEntry);
+
+        thirdPoolEntry.addProperty("type", "minecraft:item");
+        thirdPoolEntry.addProperty("name", cropSeedsName);
+
+        JsonArray thirdPoolConditions = new JsonArray();
+        thirdPool.add("conditions", thirdPoolConditions);
+
+        JsonObject thirdPoolPrimaryCondition = new JsonObject();
+        thirdPoolConditions.add(thirdPoolPrimaryCondition);
+
+        thirdPoolPrimaryCondition.addProperty("condition", "minecraft:random_chance");
+        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getTier().getSeedDuplicationChance());
+
+        JsonObject thirdPoolAgeCondition = new JsonObject();
+        thirdPoolConditions.add(thirdPoolAgeCondition);
+
+        thirdPoolAgeCondition.addProperty("condition", "minecraft:block_state_property");
+        thirdPoolAgeCondition.addProperty("block", cropBlockName);
+
+        JsonObject thirdPoolAgeConditionProperties = new JsonObject();
+        thirdPoolAgeCondition.add("properties", thirdPoolAgeConditionProperties);
+
+        thirdPoolAgeConditionProperties.addProperty("age", "7");
 
         JsonArray functions = new JsonArray();
         json.add("functions", functions);
