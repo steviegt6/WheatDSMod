@@ -7,7 +7,7 @@ import net.minecraft.block.CropBlock;
 import net.minecraft.item.ItemConvertible;
 
 public class MaterialCropBlock extends CropBlock {
-    private MaterialCropItem droppedItem;
+    private final MaterialCropItem droppedItem;
 
     public MaterialCropBlock(MaterialCropItem item, Settings settings) {
         super(settings);

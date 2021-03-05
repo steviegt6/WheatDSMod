@@ -5,8 +5,10 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArmorItemMixin",
+    "FarmerVillagerTaskMixin",
     "ItemColorsMixin",
-    "LootManagerMixin"
+    "LootManagerMixin",
+    "VillagerEntityMixin"
   ],
   "client": [
   ],

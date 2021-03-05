@@ -49,6 +49,11 @@ public class ItemRegistry {
     public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<>();
 
     /**
+     * A list that gets populated with all registered crop seeds. Used elsewhere, such as mixins.
+     */
+    public static final List<AliasedCompostableBlockItem> REGISTERED_SEEDS = new ArrayList<>();
+
+    /**
      * Registers non-crop items in the mod.
      */
     public static void registerNonCrops() {
@@ -81,6 +86,7 @@ public class ItemRegistry {
             AliasedCompostableBlockItem newItem = new AliasedCompostableBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS));
 
             Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), newItem);
+            REGISTERED_SEEDS.add(newItem);
             registerCompostableItem(newItem.getLevelIncreaseChance(), newItem);
         }
     }

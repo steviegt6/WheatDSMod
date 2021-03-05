@@ -18,7 +18,10 @@ import java.util.Map;
 
 @Mixin(LootManager.class)
 public class LootManagerMixin {
-    @Inject(method = "apply", at = @At("HEAD"))
+    @Inject(
+            method = "apply",
+            at = @At("HEAD")
+    )
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
         for (MaterialCropBlock block : BlockRegistry.REGISTERED_CROP_BLOCKS.values()) {
             JsonElement lootJson = BlockRegistry.createCropBlockLootJson(block);
