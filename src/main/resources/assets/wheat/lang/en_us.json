@@ -12,6 +12,14 @@
   "item.wheat.diamond_wheat": "Diamond Wheat",
   "item.wheat.netherite_scrap_wheat": "Netherite Scrap Wheat",
 
+  "item.wheat.coal_wheat_flour": "Coal Flour",
+  "item.wheat.iron_ingot_wheat_flour": "Iron Flour",
+  "item.wheat.gold_ingot_wheat_flour": "Gold Flour",
+  "item.wheat.redstone_wheat_flour": "Redstone Flour",
+  "item.wheat.lapis_lazuli_wheat_flour": "Lapis Lazuli Flour",
+  "item.wheat.diamond_wheat_flour": "Diamond Flour",
+  "item.wheat.netherite_wheat_flour": "Netherite Flour",
+
   "item.wheat.coal_wheat_seeds": "Coal Wheat Seeds",
   "item.wheat.iron_ingot_wheat_seeds": "Iron Wheat Seeds",
   "item.wheat.gold_ingot_wheat_seeds": "Gold Wheat Seeds",

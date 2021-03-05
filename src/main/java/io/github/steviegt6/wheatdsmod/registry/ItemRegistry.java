@@ -105,4 +105,12 @@ public class ItemRegistry {
     public static void registerCompostableItem(float levelIncreaseChance, ItemConvertible item) {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), levelIncreaseChance);
     }
+
+    public static void registerFlours() {
+        for (MaterialCropItem item : REGISTERED_CROPS) {
+            String itemName = item.getIdentifierName();
+
+            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_flour"), new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        }
+    }
 }
