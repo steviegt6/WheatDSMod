@@ -41,7 +41,7 @@ public class BlockRegistry {
             Registry.register(Registry.BLOCK, new WheatIdentifier(itemName + "_crop"), block);
             REGISTERED_CROP_BLOCKS.put(itemName, block);
 
-            BLOCK_CONVERTERS.put(Registry.BLOCK.getId(item.getTier().getConversionBlock()), block);
+            BLOCK_CONVERTERS.put(Registry.BLOCK.getId(item.getCropTier().getConversionBlock()), block);
 
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }
@@ -150,7 +150,7 @@ public class BlockRegistry {
         thirdPoolConditions.add(thirdPoolPrimaryCondition);
 
         thirdPoolPrimaryCondition.addProperty("condition", "minecraft:random_chance");
-        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getTier().getSeedDuplicationChance());
+        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getCropTier().getSeedDuplicationChance());
 
         JsonObject thirdPoolAgeCondition = new JsonObject();
         thirdPoolConditions.add(thirdPoolAgeCondition);
