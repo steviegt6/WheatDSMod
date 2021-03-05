@@ -1,13 +1,21 @@
 package io.github.steviegt6.wheatdsmod.registry;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
+import io.github.steviegt6.wheatdsmod.utilities.ReflectionHelper;
 import net.minecraft.entity.ai.brain.task.FarmerWorkTask;
 import net.minecraft.entity.ai.brain.task.GatherItemsVillagerTask;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.village.VillagerProfession;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Helper class responsible for calling registry Load methods.
@@ -26,20 +34,37 @@ public class RegistryManager {
         RecipeRegistry.register();
 
         try {
-            // https://stackoverflow.com/questions/3301635/change-private-static-final-field-using-java-reflection
-            // Jesus Christ, what a mess.
-            Field compostableField = FarmerWorkTask.class.getDeclaredField("COMPOSTABLES");
-            compostableField.setAccessible(true);
-
-            Field compostableModifiers = Field.class.getDeclaredField("modifiers");
-            compostableModifiers.setAccessible(true);
-            compostableModifiers.setInt(compostableField, compostableField.getModifiers() & ~Modifier.FINAL);
-
+            Field compostableField = ReflectionHelper.makeModifiable(FarmerWorkTask.class.getDeclaredField("COMPOSTABLES"));
             List<Item> compostables = (List<Item>) compostableField.get(null);
+
             if (compostables != null) {
-                compostables.addAll(ItemRegistry.REGISTERED_SEEDS);
-                compostables.addAll(ItemRegistry.REGISTERED_CROPS);
+                Set<Item> cloneList = new HashSet<>(compostables);
+                cloneList.addAll(ItemRegistry.REGISTERED_SEEDS);
+                // Don't compost the crops. Consistency.
+                // REMOVED: cloneList.addAll(ItemRegistry.REGISTERED_CROPS);
+                compostables = new ArrayList<>(cloneList);
                 compostableField.set(null, compostables);
+            }
+
+            Field gatherableItemsVEField = ReflectionHelper.makeModifiable(VillagerEntity.class.getDeclaredField("GATHERABLE_ITEMS"));
+            Field gatherableItemsFarmerVPField = ReflectionHelper.makeModifiable(VillagerProfession.class.getDeclaredField("gatherableItems"));
+            Set<Item> gatherableItemsVE = (Set<Item>) gatherableItemsVEField.get(null);
+            ImmutableSet<Item> gatherableItemsFarmerVP = (ImmutableSet<Item>) gatherableItemsFarmerVPField.get(VillagerProfession.FARMER);
+
+            if (gatherableItemsVE != null) {
+                Set<Item> cloneList = new HashSet<>(gatherableItemsVE);
+                cloneList.addAll(ItemRegistry.REGISTERED_SEEDS);
+                cloneList.addAll(ItemRegistry.REGISTERED_CROPS);
+                gatherableItemsVE = new HashSet<>(cloneList);
+                gatherableItemsVEField.set(null, gatherableItemsVE);
+            }
+
+            if (gatherableItemsFarmerVP != null) {
+                Set<Item> cloneSet = new HashSet<>(gatherableItemsFarmerVP);
+                cloneSet.addAll(ItemRegistry.REGISTERED_SEEDS);
+                cloneSet.addAll(ItemRegistry.REGISTERED_CROPS);
+                gatherableItemsFarmerVP = ImmutableSet.copyOf(cloneSet);
+                gatherableItemsFarmerVPField.set(VillagerProfession.FARMER, gatherableItemsFarmerVP);
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
