@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "wheat:block/diamond_wheat_crop0"
+  }
+}

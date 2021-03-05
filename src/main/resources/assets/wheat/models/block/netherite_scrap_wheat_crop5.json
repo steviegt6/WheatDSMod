@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "wheat:block/netherite_scrap_wheat_crop5"
+  }
+}
