@@ -5,8 +5,10 @@ import com.google.gson.JsonObject;
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Material;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
@@ -27,9 +29,11 @@ public class BlockRegistry {
         for (MaterialCropItem item : ItemRegistry.REGISTERED_CROPS) {
             String itemName = item.getIdentifierName();
 
-            MaterialCropBlock block = new MaterialCropBlock(item, AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
+            MaterialCropBlock block = new MaterialCropBlock(item, AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().nonOpaque().sounds(BlockSoundGroup.CROP));
             Registry.register(Registry.BLOCK, new WheatIdentifier(itemName + "_crop"), block);
             REGISTERED_CROP_BLOCKS.put(itemName, block);
+
+            BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }
     }
 
