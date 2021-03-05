@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
@@ -88,11 +89,11 @@ public class ItemRegistry {
         for (MaterialCropItem item : REGISTERED_CROPS) {
             String itemName = item.getIdentifierName();
             MaterialCropBlock block = BlockRegistry.REGISTERED_CROP_BLOCKS.get(itemName);
-            AliasedCompostableBlockItem newItem = new AliasedCompostableBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS));
+            AliasedCompostableBlockItem seedItem = new AliasedCompostableBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS));
 
-            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), newItem);
-            REGISTERED_SEEDS.add(newItem);
-            registerCompostableItem(newItem.getLevelIncreaseChance(), newItem);
+            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), seedItem);
+            REGISTERED_SEEDS.add(seedItem);
+            registerCompostableItem(seedItem.getLevelIncreaseChance(), seedItem);
         }
     }
 

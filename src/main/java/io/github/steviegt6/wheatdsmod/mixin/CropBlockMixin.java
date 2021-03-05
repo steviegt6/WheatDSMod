@@ -19,12 +19,12 @@ import java.util.Random;
 
 @Mixin(CropBlock.class)
 public class CropBlockMixin {
-    @Inject(method = "randomTick", at = @At("RETURN"))
+    @Inject(method = "randomTick", at = @At("TAIL"))
     public void injectRandomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo info) {
         tryConvertWheat(world, random, pos, state, false);
     }
 
-    @Inject(method = "grow", at = @At("RETURN"))
+    @Inject(method = "grow", at = @At("TAIL"))
     public void injectGrow(ServerWorld world, Random random, BlockPos pos, BlockState state, CallbackInfo info) {
         tryConvertWheat(world, random, pos, state, true);
     }
