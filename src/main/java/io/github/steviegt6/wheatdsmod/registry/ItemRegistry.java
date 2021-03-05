@@ -38,13 +38,13 @@ public class ItemRegistry {
      * Each element in this array will have crops autoregistered for it.
      */
     public static final CropTier[] CROP_TIERS = new CropTier[] {
-            new CropTier(Items.COAL, Blocks.COAL_BLOCK),
-            new CropTier(Items.IRON_INGOT, Blocks.IRON_BLOCK),
-            new CropTier(Items.GOLD_INGOT, Blocks.GOLD_BLOCK),
-            new CropTier(Items.REDSTONE, Blocks.REDSTONE_BLOCK),
-            new CropTier(Items.LAPIS_LAZULI, Blocks.LAPIS_BLOCK),
-            new CropTier(Items.DIAMOND, Blocks.DIAMOND_BLOCK),
-            new CropTier(Items.NETHERITE_SCRAP, Blocks.NETHERITE_BLOCK)
+            new CropTier(Items.COAL, Blocks.COAL_BLOCK, 0.005f),
+            new CropTier(Items.IRON_INGOT, Blocks.IRON_BLOCK, 0.001f),
+            new CropTier(Items.GOLD_INGOT, Blocks.GOLD_BLOCK, 0.0005f),
+            new CropTier(Items.REDSTONE, Blocks.REDSTONE_BLOCK, 0.0012f),
+            new CropTier(Items.LAPIS_LAZULI, Blocks.LAPIS_BLOCK, 0.0007f),
+            new CropTier(Items.DIAMOND, Blocks.DIAMOND_BLOCK, 0.0001f),
+            new CropTier(Items.NETHERITE_SCRAP, Blocks.NETHERITE_BLOCK, 0.00001f)
     };
 
     /**

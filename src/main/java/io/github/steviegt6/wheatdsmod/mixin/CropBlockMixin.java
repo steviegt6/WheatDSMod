@@ -1,6 +1,8 @@
 package io.github.steviegt6.wheatdsmod.mixin;
 
+import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.registry.BlockRegistry;
+import io.github.steviegt6.wheatdsmod.utilities.CropTier;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -19,16 +21,16 @@ import java.util.Random;
 public class CropBlockMixin {
     @Inject(method = "randomTick", at = @At("RETURN"))
     public void injectRandomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo info) {
-        tryConvertWheat(world, random, pos, state);
+        tryConvertWheat(world, random, pos, state, false);
     }
 
     @Inject(method = "grow", at = @At("RETURN"))
     public void injectGrow(ServerWorld world, Random random, BlockPos pos, BlockState state, CallbackInfo info) {
-        tryConvertWheat(world, random, pos, state);
+        tryConvertWheat(world, random, pos, state, true);
     }
 
-    private void tryConvertWheat(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        Block cropBlock = state.getBlock();
+    private void tryConvertWheat(ServerWorld world, Random random, BlockPos pos, BlockState state, Boolean boneMeal) {
+        CropBlock cropBlock = (CropBlock) state.getBlock();
 
         if (cropBlock.getClass() != CropBlock.class)
             return;
@@ -38,8 +40,18 @@ public class CropBlockMixin {
         Identifier beneathFarmlandBlockIdentifier = Registry.BLOCK.getId(beneathFarmlandBlock);
 
         if (BlockRegistry.BLOCK_CONVERTERS.containsKey(beneathFarmlandBlockIdentifier)) {
+            MaterialCropBlock materialCropBlock = BlockRegistry.BLOCK_CONVERTERS.get(beneathFarmlandBlockIdentifier);
+            CropTier tier = materialCropBlock.getDroppedItem().getTier();
+
+            float chance = tier.getConversionChance();
+            if (boneMeal)
+                chance /= tier.getBoneMealConversionFactor();
+
+            if (random.nextFloat() > chance)
+                return;
+
             int age = state.get(CropBlock.AGE).intValue();
-            state = BlockRegistry.BLOCK_CONVERTERS.get(beneathFarmlandBlockIdentifier).withAge(age + 1);
+            state = materialCropBlock.withAge(age + 1);
             world.setBlockState(pos, state, 2);
         }
     }
