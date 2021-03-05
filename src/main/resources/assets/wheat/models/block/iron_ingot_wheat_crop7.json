@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "wheat:block/iron_ingot_wheat_crop7"
+  }
+}
