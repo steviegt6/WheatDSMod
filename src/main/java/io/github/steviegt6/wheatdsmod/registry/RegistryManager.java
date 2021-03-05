@@ -26,6 +26,7 @@ public class RegistryManager {
 
         ItemRegistry.registerNonCrops();
         ItemRegistry.registerCrops();
+        ItemRegistry.registerFlours();
         BlockRegistry.registerCropBlocks();
         ItemRegistry.registerCropSeeds();
         RecipeRegistry.register();
