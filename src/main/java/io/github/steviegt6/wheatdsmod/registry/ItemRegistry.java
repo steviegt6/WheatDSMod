@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
@@ -103,5 +104,13 @@ public class ItemRegistry {
      */
     public static void registerCompostableItem(float levelIncreaseChance, ItemConvertible item) {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), levelIncreaseChance);
+    }
+
+    public static void registerFlours() {
+        for (MaterialCropItem item : REGISTERED_CROPS) {
+            String itemName = item.getIdentifierName();
+
+            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_flour"), new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        }
     }
 }
