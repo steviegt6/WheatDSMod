@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wheat:item/diamond_wheat_flour"
+  }
+}
