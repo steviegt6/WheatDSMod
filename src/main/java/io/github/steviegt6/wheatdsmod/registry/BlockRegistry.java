@@ -1,7 +1,5 @@
 package io.github.steviegt6.wheatdsmod.registry;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
