@@ -2,7 +2,6 @@ package io.github.steviegt6.wheatdsmod.mixin;
 
 import com.google.gson.JsonElement;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
-import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
 import io.github.steviegt6.wheatdsmod.registry.ItemRegistry;
 import io.github.steviegt6.wheatdsmod.utilities.JsonGenerators;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
@@ -22,8 +21,12 @@ public class RecipeManagerMixin {
     @Inject(method = "apply", at = @At("HEAD"))
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
         for (MaterialCropItem item : ItemRegistry.REGISTERED_CROPS) {
-            JsonElement recipeJson = JsonGenerators.createFlourToCropRecipe(item);
-            map.put(new WheatIdentifier(item.getIdentifierName()), recipeJson);
+            String cropName = item.getIdentifierName();
+            JsonElement flourRecipeJson = JsonGenerators.createCropsToFlourRecipe(item);
+            JsonElement resourceRecipeJson = JsonGenerators.createFlourToResourceRecipe(item);
+
+            map.put(new WheatIdentifier(cropName + "_flour"), flourRecipeJson);
+            map.put(new WheatIdentifier(cropName + "_flour_smelt"), resourceRecipeJson);
         }
     }
 }

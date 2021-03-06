@@ -135,7 +135,7 @@ public class JsonGenerators {
         return json;
     }
 
-    public static JsonElement createFlourToCropRecipe(MaterialCropItem item) {
+    public static JsonElement createCropsToFlourRecipe(MaterialCropItem item) {
         String cropName = new WheatIdentifier(item.getIdentifierName()).toString();
 
         JsonObject recipe = new JsonObject();
@@ -159,6 +159,25 @@ public class JsonGenerators {
         recipe.add("result", result);
 
         result.addProperty("item", cropName + "_flour");
+
+        return recipe;
+    }
+
+    public static JsonElement createFlourToResourceRecipe(MaterialCropItem item) {
+        String flourName = new WheatIdentifier(item.getIdentifierName()).toString() + "_flour";
+        String resourceName = Registry.ITEM.getId(item.getCropTier().getMaterial()).toString();
+
+        JsonObject recipe = new JsonObject();
+        recipe.addProperty("type", "minecraft:smelting");
+
+        JsonObject ingredient = new JsonObject();
+        recipe.add("ingredient", ingredient);
+
+        ingredient.addProperty("item", flourName);
+
+        recipe.addProperty("result", resourceName);
+        recipe.addProperty("experience", 0.15f);
+        recipe.addProperty("cookingtime", 200);
 
         return recipe;
     }
