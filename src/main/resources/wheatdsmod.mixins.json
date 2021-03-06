@@ -10,7 +10,8 @@
     "ItemColorsMixin",
     "LootManagerMixin",
     "VillagerEntityMixin",
-    "CropBlockMixin"
+    "CropBlockMixin",
+    "RecipeManagerMixin"
   ],
   "client": [
   ],

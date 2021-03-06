@@ -4,6 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
+import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
+import net.minecraft.util.registry.Registry;
 
 public class JsonGenerators {
     public static JsonElement createCropBlockLootJson(MaterialCropBlock block) {
@@ -109,7 +111,7 @@ public class JsonGenerators {
         thirdPoolConditions.add(thirdPoolPrimaryCondition);
 
         thirdPoolPrimaryCondition.addProperty("condition", "minecraft:random_chance");
-        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getTier().getSeedDuplicationChance());
+        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getCropTier().getSeedDuplicationChance());
 
         JsonObject thirdPoolAgeCondition = new JsonObject();
         thirdPoolConditions.add(thirdPoolAgeCondition);
@@ -131,5 +133,33 @@ public class JsonGenerators {
         function.addProperty("function", "minecraft:explosion_decay");
 
         return json;
+    }
+
+    public static JsonElement createFlourToCropRecipe(MaterialCropItem item) {
+        String cropName = new WheatIdentifier(item.getIdentifierName()).toString();
+
+        JsonObject recipe = new JsonObject();
+        recipe.addProperty("type", "minecraft:crafting_shaped");
+
+        JsonArray pattern = new JsonArray();
+        recipe.add("pattern", pattern);
+
+        pattern.add("###");
+        pattern.add("###");
+
+        JsonObject key = new JsonObject();
+        recipe.add("key", key);
+
+        JsonObject hashTagKey = new JsonObject();
+        key.add("#", hashTagKey);
+
+        hashTagKey.addProperty("item", cropName);
+
+        JsonObject result = new JsonObject();
+        recipe.add("result", result);
+
+        result.addProperty("item", cropName + "_flour");
+
+        return recipe;
     }
 }
