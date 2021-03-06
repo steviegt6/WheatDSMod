@@ -176,7 +176,7 @@ public class JsonGenerators {
         ingredient.addProperty("item", flourName);
 
         recipe.addProperty("result", resourceName);
-        recipe.addProperty("experience", 0.15f);
+        recipe.addProperty("experience", 0.5f);
         recipe.addProperty("cookingtime", 200);
 
         return recipe;
