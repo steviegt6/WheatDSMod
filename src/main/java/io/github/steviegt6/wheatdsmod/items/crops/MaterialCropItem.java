@@ -3,8 +3,10 @@ package io.github.steviegt6.wheatdsmod.items.crops;
 import io.github.steviegt6.wheatdsmod.items.Compostable;
 import io.github.steviegt6.wheatdsmod.items.NamedItem;
 import io.github.steviegt6.wheatdsmod.utilities.CropTier;
+import io.github.steviegt6.wheatdsmod.utilities.CropTiered;
 
-public class MaterialCropItem extends NamedItem implements Compostable {
+public class MaterialCropItem extends NamedItem implements Compostable, CropTiered
+{
     private final CropTier tier;
 
     public MaterialCropItem(CropTier tier, String name, Settings settings) {
@@ -12,7 +14,8 @@ public class MaterialCropItem extends NamedItem implements Compostable {
         this.tier = tier;
     }
 
-    public CropTier getTier() {
+    @Override
+    public CropTier getCropTier() {
         return tier;
     }
 

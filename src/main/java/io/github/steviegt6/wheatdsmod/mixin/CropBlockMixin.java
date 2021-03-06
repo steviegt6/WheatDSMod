@@ -19,12 +19,18 @@ import java.util.Random;
 
 @Mixin(CropBlock.class)
 public class CropBlockMixin {
-    @Inject(method = "randomTick", at = @At("TAIL"))
+    @Inject(
+            method = "randomTick",
+            at = @At("TAIL")
+    )
     public void injectRandomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo info) {
         tryConvertWheat(world, random, pos, state, false);
     }
 
-    @Inject(method = "grow", at = @At("TAIL"))
+    @Inject(
+            method = "grow",
+            at = @At("TAIL")
+    )
     public void injectGrow(ServerWorld world, Random random, BlockPos pos, BlockState state, CallbackInfo info) {
         tryConvertWheat(world, random, pos, state, true);
     }
@@ -41,7 +47,7 @@ public class CropBlockMixin {
 
         if (BlockRegistry.BLOCK_CONVERTERS.containsKey(beneathFarmlandBlockIdentifier)) {
             MaterialCropBlock materialCropBlock = BlockRegistry.BLOCK_CONVERTERS.get(beneathFarmlandBlockIdentifier);
-            CropTier tier = materialCropBlock.getDroppedItem().getTier();
+            CropTier tier = materialCropBlock.getDroppedItem().getCropTier();
 
             float chance = tier.getConversionChance();
             if (boneMeal)
@@ -50,7 +56,7 @@ public class CropBlockMixin {
             if (random.nextFloat() > chance)
                 return;
 
-            int age = state.get(CropBlock.AGE).intValue();
+            int age = state.get(CropBlock.AGE);
             state = materialCropBlock.withAge(age + 1);
             world.setBlockState(pos, state, 2);
         }
