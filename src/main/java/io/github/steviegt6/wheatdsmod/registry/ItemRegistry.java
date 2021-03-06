@@ -45,7 +45,7 @@ public class ItemRegistry {
             new CropTier(Items.REDSTONE, Blocks.REDSTONE_BLOCK, 0.0012f),
             new CropTier(Items.LAPIS_LAZULI, Blocks.LAPIS_BLOCK, 0.0007f),
             new CropTier(Items.DIAMOND, Blocks.DIAMOND_BLOCK, 0.0001f),
-            new CropTier(Items.NETHERITE_SCRAP, Blocks.NETHERITE_BLOCK, 0.00001f)
+            new CropTier(Items.NETHERITE_SCRAP, Blocks.ANCIENT_DEBRIS, 0.00001f)
     };
 
     /**
