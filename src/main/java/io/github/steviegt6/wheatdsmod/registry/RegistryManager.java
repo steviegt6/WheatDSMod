@@ -22,7 +22,7 @@ public class RegistryManager {
      * Load registries.
      */
     public static void load() {
-        WheatLogger.quickLogInfo("Registering content...");
+        WheatLogger.info("Registering content...");
 
         ItemRegistry.registerNonCrops();
         ItemRegistry.registerCrops();
@@ -68,6 +68,6 @@ public class RegistryManager {
             e.printStackTrace();
         }
 
-        WheatLogger.quickLogInfo("Registered content!");
+        WheatLogger.info("Registered content!");
     }
 }

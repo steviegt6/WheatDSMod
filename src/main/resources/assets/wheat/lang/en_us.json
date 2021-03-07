@@ -26,5 +26,7 @@
   "item.wheat.redstone_wheat_seeds": "Redstone Wheat Seeds",
   "item.wheat.lapis_lazuli_wheat_seeds": "Lapis Lazuli Wheat Seeds",
   "item.wheat.diamond_wheat_seeds": "Diamond Wheat Seeds",
-  "item.wheat.netherite_scrap_wheat_seeds": "Netherite Scrap Wheat Seeds"
+  "item.wheat.netherite_scrap_wheat_seeds": "Netherite Scrap Wheat Seeds",
+
+  "item.wheat.flour": "Flour"
 }

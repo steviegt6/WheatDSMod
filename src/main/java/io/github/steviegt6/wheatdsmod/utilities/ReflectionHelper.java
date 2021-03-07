@@ -35,4 +35,36 @@ public class ReflectionHelper {
         field.setAccessible(true);
         return removeFinalModifier(field);
     }
+
+    /**
+     * Modifies the specified static field with the specified value.
+     * If the field is inaccessible, it becomes permanently accessible. If the field has a final modifier, it is removed permanently.
+     * @param clazz The class that contains the field.
+     * @param name The name of the field.
+     * @param value The value to set the field to.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static void modifyStaticField(Class clazz, String name, Object value) throws NoSuchFieldException, IllegalAccessException {
+        modifyField(clazz, name, null, value);
+    }
+
+    /**
+     * Modifies the specified instance field with the specified value.
+     * If the field is inaccessible, it becomes permanently accessible. If the field has a final modifier, it is removed permanently.
+     * @param clazz The class that contains the field.
+     * @param name The name of the field.
+     * @param instance The instance to apply this field change to.
+     * @param value The value to set the field to.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static void modifyInstanceField(Class clazz, String name, Object instance, Object value) throws NoSuchFieldException, IllegalAccessException {
+        modifyField(clazz, name, instance, value);
+    }
+
+    private static void modifyField(Class clazz, String name, Object instance, Object value) throws NoSuchFieldException, IllegalAccessException {
+        Field field = makeModifiable(clazz.getDeclaredField(name));
+        field.set(instance, value);
+    }
 }

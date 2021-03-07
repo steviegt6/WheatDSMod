@@ -9,10 +9,10 @@ import net.fabricmc.api.Environment;
 public class WheatDSModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        WheatLogger.quickLogInfo("Initializing wheat client...");
+        WheatLogger.info("Initializing wheat client...");
 
         // TODO: What goes here?
 
-        WheatLogger.quickLogInfo("Initialized wheat client!");
+        WheatLogger.info("Initialized wheat client!");
     }
 }

@@ -12,10 +12,10 @@ public class WheatDSMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        WheatLogger.quickLogInfo("Initializing wheat...");
+        WheatLogger.info("Initializing wheat...");
 
         RegistryManager.load();
 
-        WheatLogger.quickLogInfo("Initialized wheat!");
+        WheatLogger.info("Initialized wheat!");
     }
 }

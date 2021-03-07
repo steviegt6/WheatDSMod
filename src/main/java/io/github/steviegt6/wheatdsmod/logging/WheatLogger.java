@@ -16,7 +16,15 @@ public class WheatLogger {
      * Quickly calls our Logger's info method without the need to reference our instance.
      * @param message The message to log.
      */
-    public static void quickLogInfo(String message) {
+    public static void info(Object message) {
         LOGGER.info(message);
+    }
+
+    /**
+     * Quickly calls our Logger's warn method without the need to reference our instance.
+     * @param message
+     */
+    public static void error(Object message) {
+        LOGGER.error(message);
     }
 }

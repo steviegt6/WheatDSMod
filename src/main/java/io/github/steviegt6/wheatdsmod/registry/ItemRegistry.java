@@ -5,16 +5,15 @@ import io.github.steviegt6.wheatdsmod.items.AliasedCompostableBlockItem;
 import io.github.steviegt6.wheatdsmod.items.NamedDyeableArmorItem;
 import io.github.steviegt6.wheatdsmod.items.WheatArmorMaterial;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
+import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
 import io.github.steviegt6.wheatdsmod.utilities.CropTier;
+import io.github.steviegt6.wheatdsmod.utilities.ReflectionHelper;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
@@ -33,6 +32,8 @@ public class ItemRegistry {
             new NamedDyeableArmorItem("padded_leather_leggings", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.LEGS,new FabricItemSettings().group(ItemGroup.COMBAT)),
             new NamedDyeableArmorItem("padded_leather_boots", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT))
     };
+
+    public static final Item FLOUR = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
 
     /**
      * An array of CropTiers that represent the different materials this mod will target.
@@ -64,6 +65,14 @@ public class ItemRegistry {
     public static void registerNonCrops() {
         for (NamedDyeableArmorItem item : PADDED_WHEAT_SET) {
             Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
+        }
+
+        Registry.register(Registry.ITEM, new WheatIdentifier("flour"), FLOUR);
+
+        try {
+            ReflectionHelper.modifyInstanceField(Item.class, "foodComponent", Items.BREAD, new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build());
+        } catch (Exception exception) {
+            WheatLogger.error("Failed to modify bread foodcomponent: " + exception);
         }
     }
 
