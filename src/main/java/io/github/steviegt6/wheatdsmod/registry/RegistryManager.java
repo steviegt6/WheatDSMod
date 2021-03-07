@@ -30,6 +30,7 @@ public class RegistryManager {
         BlockRegistry.registerCropBlocks();
         ItemRegistry.registerCropSeeds();
         RecipeRegistry.register();
+        MerchantRegistry.registerTrades();
 
         try {
             Field compostableField = ReflectionHelper.makeModifiable(FarmerWorkTask.class.getDeclaredField("COMPOSTABLES"));
