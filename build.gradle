@@ -29,6 +29,8 @@ dependencies {
         exclude(group: "net.fabricmc")
     }
 
+    modImplementation "vazkii.patchouli:Patchouli:1.16.4-50-FABRIC"
+
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 }
@@ -42,6 +44,8 @@ repositories {
     }
 
     maven { url "https://maven.shedaniel.me/" }
+
+    maven { url 'https://maven.blamejared.com' }
 }
 
 processResources {
