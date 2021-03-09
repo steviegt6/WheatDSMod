@@ -55,6 +55,7 @@ public class CropTier {
         public Builder(Item materialItem) {
             material = materialItem;
             boneMealConversionFactor = 1f;
+            beeGrowable = true;
         }
 
         public CropTier build() {
