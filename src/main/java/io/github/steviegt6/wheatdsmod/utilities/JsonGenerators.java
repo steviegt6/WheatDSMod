@@ -111,7 +111,7 @@ public class JsonGenerators {
         thirdPoolConditions.add(thirdPoolPrimaryCondition);
 
         thirdPoolPrimaryCondition.addProperty("condition", "minecraft:random_chance");
-        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getCropTier().getSeedDuplicationChance());
+        thirdPoolPrimaryCondition.addProperty("chance", block.getDroppedItem().getCropTier().getSeedDupeChance());
 
         JsonObject thirdPoolAgeCondition = new JsonObject();
         thirdPoolConditions.add(thirdPoolAgeCondition);

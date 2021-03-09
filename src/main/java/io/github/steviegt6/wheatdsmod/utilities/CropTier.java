@@ -8,22 +8,16 @@ public class CropTier {
     private final Block conversionBlock;
     private final float conversionChance;
     private final float boneMealConversionFactor;
-    private final float seedDuplicationChance;
+    private final float seedDupeChance;
+    private final boolean beeGrowable;
 
-    public CropTier(Item item, Block block, float chance) {
-        material = item;
-        conversionBlock = block;
-        conversionChance = chance;
-        boneMealConversionFactor = 10;
-        seedDuplicationChance = 0.01f;
-    }
-
-    public CropTier(Item item, Block block, float chance, float boneMealFactor, float seedDupeChance) {
+    private CropTier(Item item, Block block, float chance, float boneMealFactor, float seedDuplicationChance, boolean beeGrown) {
         material = item;
         conversionBlock = block;
         conversionChance = chance;
         boneMealConversionFactor = boneMealFactor;
-        seedDuplicationChance = seedDupeChance;
+        seedDupeChance = seedDuplicationChance;
+        beeGrowable = beeGrown;
     }
 
     public Item getMaterial() {
@@ -42,7 +36,54 @@ public class CropTier {
         return boneMealConversionFactor;
     }
 
-    public float getSeedDuplicationChance() {
-        return seedDuplicationChance;
+    public float getSeedDupeChance() {
+        return seedDupeChance;
+    }
+
+    public boolean isBeeGrowable() {
+        return beeGrowable;
+    }
+
+    public static class Builder {
+        private Item material;
+        private Block conversionBlock;
+        private float conversionChance;
+        private float boneMealConversionFactor;
+        private float seedDupeChance;
+        private boolean beeGrowable;
+
+        public Builder(Item materialItem) {
+            material = materialItem;
+            boneMealConversionFactor = 1f;
+        }
+
+        public CropTier build() {
+            return new CropTier(material, conversionBlock, conversionChance, boneMealConversionFactor, seedDupeChance, beeGrowable);
+        }
+
+        public Builder conversionBlock(Block block) {
+            conversionBlock = block;
+            return this;
+        }
+
+        public Builder conversionChance(float chance) {
+            conversionChance = chance;
+            return this;
+        }
+
+        public Builder boneMealConversionFactor(float factor) {
+            boneMealConversionFactor = factor;
+            return this;
+        }
+
+        public Builder seedDupeChance(float chance) {
+            seedDupeChance = chance;
+            return this;
+        }
+
+        public Builder beeGrowable(boolean growable) {
+            beeGrowable = growable;
+            return this;
+        }
     }
 }

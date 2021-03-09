@@ -40,13 +40,13 @@ public class ItemRegistry {
      * Each element in this array will have crops autoregistered for it.
      */
     public static final CropTier[] CROP_TIERS = new CropTier[] {
-            new CropTier(Items.COAL, Blocks.COAL_BLOCK, 0.005f),
-            new CropTier(Items.IRON_INGOT, Blocks.IRON_BLOCK, 0.001f),
-            new CropTier(Items.GOLD_INGOT, Blocks.GOLD_BLOCK, 0.0005f),
-            new CropTier(Items.REDSTONE, Blocks.REDSTONE_BLOCK, 0.0012f),
-            new CropTier(Items.LAPIS_LAZULI, Blocks.LAPIS_BLOCK, 0.0007f),
-            new CropTier(Items.DIAMOND, Blocks.DIAMOND_BLOCK, 0.0001f),
-            new CropTier(Items.NETHERITE_SCRAP, Blocks.ANCIENT_DEBRIS, 0.00001f)
+            new CropTier.Builder(Items.COAL).conversionBlock(Blocks.COAL_BLOCK).conversionChance(0.005f).seedDupeChance(0.1f).build(),
+            new CropTier.Builder(Items.IRON_INGOT).conversionBlock(Blocks.IRON_BLOCK).conversionChance(0.001f).seedDupeChance(0.03f).build(),
+            new CropTier.Builder(Items.GOLD_INGOT).conversionBlock(Blocks.GOLD_BLOCK).conversionChance(0.0005f).seedDupeChance(0.01f).build(),
+            new CropTier.Builder(Items.REDSTONE).conversionBlock(Blocks.REDSTONE_BLOCK).conversionChance(0.0012f).seedDupeChance(0.07f).build(),
+            new CropTier.Builder(Items.LAPIS_LAZULI).conversionBlock(Blocks.LAPIS_BLOCK).conversionChance(0.0007f).seedDupeChance(0.015f).build(),
+            new CropTier.Builder(Items.DIAMOND).conversionBlock(Blocks.DIAMOND_BLOCK).conversionChance(0.0001f).seedDupeChance(0.005f).build(),
+            new CropTier.Builder(Items.NETHERITE_SCRAP).conversionBlock(Blocks.ANCIENT_DEBRIS).conversionChance(0.00001f).seedDupeChance(0.001f).build()
     };
 
     /**
