@@ -11,7 +11,8 @@
     "LootManagerMixin",
     "VillagerEntityMixin",
     "CropBlockMixin",
-    "RecipeManagerMixin"
+    "RecipeManagerMixin",
+    "ServerResourceManagerMixin"
   ],
   "client": [
   ],

@@ -26,7 +26,6 @@ public class LootManagerMixin {
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
         for (MaterialCropBlock block : BlockRegistry.REGISTERED_CROP_BLOCKS.values()) {
             JsonElement lootJson = JsonGenerators.createCropBlockLootJson(block);
-            WheatLogger.info(lootJson.toString());
             map.put(new WheatIdentifier("blocks/" + block.getDroppedItem().getIdentifierName() + "_crop"), lootJson);
         }
     }

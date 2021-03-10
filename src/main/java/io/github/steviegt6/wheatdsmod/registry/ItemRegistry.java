@@ -14,6 +14,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
@@ -115,6 +116,9 @@ public class ItemRegistry {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), levelIncreaseChance);
     }
 
+    /**
+     * Registers a flour item for all registered crops.
+     */
     public static void registerFlours() {
         for (MaterialCropItem item : REGISTERED_CROPS) {
             String itemName = item.getIdentifierName();

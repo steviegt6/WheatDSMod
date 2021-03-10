@@ -36,6 +36,10 @@ public class ReflectionHelper {
         return removeFinalModifier(field);
     }
 
+    private static Field getFieldAsModifiable(Class clazz, String name) throws NoSuchFieldException, IllegalAccessException {
+        return makeModifiable(clazz.getDeclaredField(name));
+    }
+
     /**
      * Modifies the specified static field with the specified value.
      * If the field is inaccessible, it becomes permanently accessible. If the field has a final modifier, it is removed permanently.
@@ -64,7 +68,32 @@ public class ReflectionHelper {
     }
 
     private static void modifyField(Class clazz, String name, Object instance, Object value) throws NoSuchFieldException, IllegalAccessException {
-        Field field = makeModifiable(clazz.getDeclaredField(name));
+        Field field = getFieldAsModifiable(clazz, name);
         field.set(instance, value);
+    }
+
+    /**
+     * Retrieves the value of a field for a given instance.
+     * @param clazz The class that contains the field.
+     * @param name The name of the field.
+     * @param instance The instance to retrieve the field's value from.
+     * @return The value of the field.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static Object getInstanceFieldValue(Class clazz, String name, Object instance) throws NoSuchFieldException, IllegalAccessException {
+        return getFieldAsModifiable(clazz, name).get(instance);
+    }
+
+    /**
+     * Retrieves the value of a static field.
+     * @param clazz The class that contains the field.
+     * @param name The name of the field.
+     * @return The value of the field.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static Object getStaticFieldValue(Class clazz, String name) throws NoSuchFieldException, IllegalAccessException {
+        return getFieldAsModifiable(clazz, name).get(null);
     }
 }

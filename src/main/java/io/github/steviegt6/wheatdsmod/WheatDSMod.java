@@ -1,6 +1,7 @@
 package io.github.steviegt6.wheatdsmod;
 
 import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
+import io.github.steviegt6.wheatdsmod.registry.ItemRegistry;
 import io.github.steviegt6.wheatdsmod.registry.RegistryManager;
 import net.fabricmc.api.ModInitializer;
 
