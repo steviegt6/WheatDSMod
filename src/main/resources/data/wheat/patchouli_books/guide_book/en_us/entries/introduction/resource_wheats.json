@@ -1,0 +1,16 @@
+{
+  "name": "Resource Wheats",
+  "icon": "wheat:gold_ingot_wheat",
+  "category": "introduction",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "The entire premise of this mod revolves around resource wheats; a special variant of vanilla wheat that instead of being baked into bread, gets baked into a range of different resources you find throughout the world!"
+    },
+    {
+      "type": "text",
+      "text": "There's a few different ways of obtaining resource wheats that are detailed throughout this book, along with details on how to farm them efficiently and fast, as well as some of their less trivial uses."
+    }
+  ]
+}

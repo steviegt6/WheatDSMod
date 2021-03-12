@@ -1,0 +1,50 @@
+{
+  "name": "Flours",
+  "icon": "wheat:flour",
+  "category": "introduction",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "After getting your hands on some resource wheats, you should probably turn them into something useful. This process is quite simple."
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:coal_wheat_flour",
+      "recipe2": "wheat:iron_ingot_wheat_flour"
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:gold_ingot_wheat_flour",
+      "recipe2": "wheat:redstone_wheat_flour"
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:lapis_lazuli_wheat_flour",
+      "recipe2": "wheat:diamond_wheat_flour"
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:netherite_scrap_wheat_flour"
+    },
+    {
+      "type": "smelting",
+      "recipe": "wheat:coal_wheat_flour_smelt",
+      "recipe2": "wheat:iron_ingot_wheat_flour_smelt"
+    },
+    {
+      "type": "smelting",
+      "recipe": "wheat:gold_ingot_wheat_flour_smelt",
+      "recipe2": "wheat:redstone_wheat_flour_smelt"
+    },
+    {
+      "type": "smelting",
+      "recipe": "wheat:lapis_lazuli_wheat_flour_smelt",
+      "recipe2": "wheat:diamond_wheat_flour_smelt"
+    },
+    {
+      "type": "smelting",
+      "recipe": "wheat:netherite_scrap_wheat_flour_smelt"
+    }
+  ]
+}

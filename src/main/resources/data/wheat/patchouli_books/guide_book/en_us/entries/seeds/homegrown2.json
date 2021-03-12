@@ -1,0 +1,24 @@
+{
+  "name": "Homegrown: Fool's index",
+  "icon": "minecraft:bone_meal",
+  "category": "seeds",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Assuming you've read the previous entry, here's some important information you'll want to remember.$(br2)Obviously, different wheats require different blocks. Gold wheat needs gold blocks, diamond seeds need diamond blocks and so on. By default, netherite scrap seeds need an ancient debris to convert."
+    },
+    {
+      "type": "text",
+      "text": "Another important thing to know is that more valuable wheats have vastly lower conversion chances. This means that although it may take you a bit to get iron wheat seeds, diamond wheat seeds will require dozens more times waiting.$(br2)Just a single wheat trying to convert to a diamond wheat will take forever."
+    },
+    {
+      "type": "text",
+      "text": "You might think that bonemealing your crops to force growths and in turn force an attempt to convert is a great idea, but it seems that wheats which are attempting to convert don't take very kindly to it.$(br2)When you bonemeal a wheat crop, the forced growth will have a lower chance to convert than normal growths."
+    },
+    {
+      "type": "text",
+      "text": "But the nuances don't end there. If you harvest a fully grown resource wheat, the chance that it'll drop an extra seed is small, meaning it might take you lots of harvests before you have enough seeds to build a decently sized farm.$(br2)Don't worry though, there's techniques to combat these difficulties discussed in later chapters."
+    }
+  ]
+}
