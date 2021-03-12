@@ -45,7 +45,7 @@ public class ItemRegistry {
 
     public static final Item FLOUR = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
 
-    public static final Item GUIDE_BOOK = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)) {
+    public static final Item GUIDE_BOOK = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS).maxCount(1)) {
         @Override
         public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
             ItemStack stack = user.getStackInHand(hand);
