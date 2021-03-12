@@ -42,11 +42,5 @@ public class ServerResourceManagerMixin {
                 .build();
 
         ReflectionHelper.modifyInstanceField(SetTag.class, "valueSet", tag, newTagsSet);
-
-        for (Block block : BlockTags.BEE_GROWABLES.values())
-            WheatLogger.info("BEE_GROWABLES: " + block);
-
-        for (Object x : newTags)
-            WheatLogger.info(BlockTags.BEE_GROWABLES.contains((Block)x));
     }
 }
