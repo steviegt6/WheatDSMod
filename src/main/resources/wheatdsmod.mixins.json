@@ -12,7 +12,7 @@
     "VillagerEntityMixin",
     "CropBlockMixin",
     "RecipeManagerMixin",
-    "ServerResourceManagerMixin"
+    "ServerResourceManagerMixin",
     "ItemEntityMixin",
     "PlayerEntityMixin"
   ],
