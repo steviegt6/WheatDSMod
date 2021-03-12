@@ -1,0 +1,26 @@
+{
+  "name": "Padded Armor",
+  "icon": "wheat:padded_leather_chestplate",
+  "category": "introduction",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Ever thought leather armor was ridiculously weak? Well, since wheat is versatile, why not just stuff a bunch of it beneath the armor and call it a day?"
+    },
+    {
+      "type": "text",
+      "text": "Padded wheat armor, although not much stronger than leather armor, provides substantial knockback resistance. To top it off, it's dyable just like regular leather armor!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:padded_leather_armor/padded_leather_helmet",
+      "recipe2": "wheat:padded_leather_armor/padded_leather_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "wheat:padded_leather_armor/padded_leather_leggings",
+      "recipe2": "wheat:padded_leather_armor/padded_leather_boots"
+    }
+  ]
+}
