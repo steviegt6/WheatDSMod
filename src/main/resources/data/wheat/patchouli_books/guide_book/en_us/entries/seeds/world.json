@@ -1,0 +1,20 @@
+{
+  "name": "In the world",
+  "icon": "minecraft:poppy",
+  "category": "seeds",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "It's possible to find different kinds of wheat growing in village farms. However, this is rare, and particularly expensive wheats will never generate in villages."
+    },
+    {
+      "type": "text",
+      "text": "Another way of obtaining different wheat seeds is to trade with farmer villagers. These trades are unlocked at higher levels of trading, and perhaps you may be lucky enough to score a good deal."
+    },
+    {
+      "type": "text",
+      "text": "The last way of naturally finding different wheat seeds is to explore the underground. You may find seeds inside chests scattered throughout dungeons and mineshafts."
+    }
+  ]
+}

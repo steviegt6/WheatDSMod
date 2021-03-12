@@ -1,5 +1,6 @@
 package io.github.steviegt6.wheatdsmod.registry;
 
+import io.github.steviegt6.wheatdsmod.WheatDSMod;
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.items.AliasedCompostableBlockItem;
 import io.github.steviegt6.wheatdsmod.items.NamedDyeableArmorItem;
@@ -10,12 +11,20 @@ import io.github.steviegt6.wheatdsmod.utilities.CropTier;
 import io.github.steviegt6.wheatdsmod.utilities.ReflectionHelper;
 import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
+import vazkii.patchouli.api.PatchouliAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +44,20 @@ public class ItemRegistry {
     };
 
     public static final Item FLOUR = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+    public static final Item GUIDE_BOOK = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)) {
+        @Override
+        public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+            ItemStack stack = user.getStackInHand(hand);
+
+            if (user instanceof ServerPlayerEntity && WheatDSMod.PatchouliLoaded) {
+                ServerPlayerEntity player = (ServerPlayerEntity) user;
+                PatchouliAPI.get().openBookGUI(player, Registry.ITEM.getId(this));
+            }
+
+            return new TypedActionResult<>(ActionResult.SUCCESS, stack);
+        }
+    };
 
     /**
      * An array of CropTiers that represent the different materials this mod will target.
@@ -69,6 +92,10 @@ public class ItemRegistry {
         }
 
         Registry.register(Registry.ITEM, new WheatIdentifier("flour"), FLOUR);
+
+        if (FabricLoader.getInstance().isModLoaded("patchouli")) {
+            Registry.register(Registry.ITEM, new WheatIdentifier("guide_book"), GUIDE_BOOK);
+        }
 
         try {
             ReflectionHelper.modifyInstanceField(Item.class, "foodComponent", Items.BREAD, new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build());

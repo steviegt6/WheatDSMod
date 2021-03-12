@@ -1,0 +1,42 @@
+{
+  "name": "Homegrown",
+  "icon": "minecraft:stone_hoe",
+  "category": "seeds",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "If you find yourself unable to get your hands on some seeds from exploring, you may have to resort to growing them yourself."
+    },
+    {
+      "type": "text",
+      "text": "As you might know, the most common kind of wheat you find growing in the world are normal ones (you know, the stuff you bake bread from).$(br)These seeds can be converted into other seed types if you have the resources needed."
+    },
+    {
+      "type": "text",
+      "text": "Suppose we want to get our hands on iron wheat seeds.$(br)You will need: $(li)One normal wheat seed $(li)One iron block $(li)One block of farmland to grow the wheat on $(br2)Once you have the above, you can begin the conversion process."
+    },
+    {
+      "type": "image",
+      "title": "Triticum Ferrus?",
+      "border": true,
+      "text": "Place the iron block down, a farmland on top, then plant your wheat.",
+      "images": [
+        "wheat:textures/gui/entries/homegrown.png"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "After you're done, all you have to do is wait. Each time the normal wheat crop grows, there is a chance it'll convert to an iron wheat crop.$(br)Once that happens, you can harvest it and get iron wheat seeds!"
+    },
+    {
+      "type": "image",
+      "title": "Triticum Ferrus!",
+      "border": true,
+      "text": "Patience will always pay off in the end.",
+      "images": [
+        "wheat:textures/gui/entries/homegrown2.png"
+      ]
+    }
+  ]
+}

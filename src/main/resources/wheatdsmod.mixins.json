@@ -13,6 +13,8 @@
     "CropBlockMixin",
     "RecipeManagerMixin",
     "ServerResourceManagerMixin"
+    "ItemEntityMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
   ],
