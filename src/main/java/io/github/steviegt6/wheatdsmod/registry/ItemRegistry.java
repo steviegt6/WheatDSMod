@@ -74,6 +74,11 @@ public class ItemRegistry {
     };
 
     /**
+     * A list that gets populated with every single item the mod has.
+     */
+    public static final List<Item> REGISTERED_ITEMS = new ArrayList<>();
+
+    /**
      * A list that gets populated with all registered crop items. Used in later content registrations.
      */
     public static final List<MaterialCropItem> REGISTERED_CROPS = new ArrayList<>();
@@ -83,19 +88,23 @@ public class ItemRegistry {
      */
     public static final List<AliasedCompostableBlockItem> REGISTERED_SEEDS = new ArrayList<>();
 
+    private static void registerItem(Item item, String identifier) {
+        Registry.register(Registry.ITEM, new WheatIdentifier(identifier), item);
+        REGISTERED_ITEMS.add(item);
+    }
+
     /**
      * Registers non-crop items in the mod.
      */
     public static void registerNonCrops() {
         for (NamedDyeableArmorItem item : PADDED_WHEAT_SET) {
-            Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
+            registerItem(item, item.getIdentifierName());
         }
 
-        Registry.register(Registry.ITEM, new WheatIdentifier("flour"), FLOUR);
+        registerItem(FLOUR, "flour");
 
-        if (FabricLoader.getInstance().isModLoaded("patchouli")) {
-            Registry.register(Registry.ITEM, new WheatIdentifier("guide_book"), GUIDE_BOOK);
-        }
+        if (FabricLoader.getInstance().isModLoaded("patchouli"))
+            registerItem(GUIDE_BOOK, "guide_book");
 
         try {
             ReflectionHelper.modifyInstanceField(Item.class, "foodComponent", Items.BREAD, new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build());
@@ -112,7 +121,7 @@ public class ItemRegistry {
             String materialName = Registry.ITEM.getId(tier.getMaterial()).getPath();
             MaterialCropItem item = new MaterialCropItem(tier, materialName + "_wheat", new FabricItemSettings().group(ItemGroup.MATERIALS));
 
-            Registry.register(Registry.ITEM, new WheatIdentifier(item.getIdentifierName()), item);
+            registerItem(item, item.getIdentifierName());
             REGISTERED_CROPS.add(item);
 
             registerCompostableItem(item.getLevelIncreaseChance(), item);
@@ -128,7 +137,7 @@ public class ItemRegistry {
             MaterialCropBlock block = BlockRegistry.REGISTERED_CROP_BLOCKS.get(itemName);
             AliasedCompostableBlockItem seedItem = new AliasedCompostableBlockItem(block, new FabricItemSettings().group(ItemGroup.MATERIALS));
 
-            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_seeds"), seedItem);
+            registerItem(seedItem, itemName + "_seeds");
             REGISTERED_SEEDS.add(seedItem);
             registerCompostableItem(seedItem.getLevelIncreaseChance(), seedItem);
         }
@@ -149,8 +158,9 @@ public class ItemRegistry {
     public static void registerFlours() {
         for (MaterialCropItem item : REGISTERED_CROPS) {
             String itemName = item.getIdentifierName();
+            Item flourItem = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
 
-            Registry.register(Registry.ITEM, new WheatIdentifier(itemName + "_flour"), new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+            registerItem(flourItem, itemName + "_flour");
         }
     }
 }
