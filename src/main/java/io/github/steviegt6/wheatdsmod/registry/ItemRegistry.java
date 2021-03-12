@@ -43,7 +43,20 @@ public class ItemRegistry {
     };
 
     public static final Item FLOUR = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
-    public static final Item GUIDE_BOOK = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+    public static final Item GUIDE_BOOK = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)) {
+        @Override
+        public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+            ItemStack stack = user.getStackInHand(hand);
+
+            if (user instanceof ServerPlayerEntity && WheatDSMod.PatchouliLoaded) {
+                ServerPlayerEntity player = (ServerPlayerEntity) user;
+                PatchouliAPI.get().openBookGUI(player, Registry.ITEM.getId(this));
+            }
+
+            return new TypedActionResult<>(ActionResult.SUCCESS, stack);
+        }
+    };
 
     /**
      * An array of CropTiers that represent the different materials this mod will target.
@@ -80,19 +93,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new WheatIdentifier("flour"), FLOUR);
 
         if (FabricLoader.getInstance().isModLoaded("patchouli")) {
-            Registry.register(Registry.ITEM, new WheatIdentifier("guide_book"), new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)) {
-                @Override
-                public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-                    ItemStack stack = user.getStackInHand(hand);
-
-                    if (user instanceof ServerPlayerEntity && WheatDSMod.PatchouliLoaded) {
-                        ServerPlayerEntity player = (ServerPlayerEntity) user;
-                        PatchouliAPI.get().openBookGUI(player, Registry.ITEM.getId(this));
-                    }
-
-                    return new TypedActionResult<>(ActionResult.SUCCESS, stack);
-                }
-            });
+            Registry.register(Registry.ITEM, new WheatIdentifier("guide_book"), GUIDE_BOOK);
         }
 
         try {
