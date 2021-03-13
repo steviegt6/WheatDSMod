@@ -17,7 +17,7 @@ public class VillageLootPool {
                         .rolls(UniformLootTableRange.between(0, 5))
                         .withCondition(RandomChanceLootCondition.builder(1.0f).build());
 
-                for (Item item : ItemRegistry.REGISTERED_CROPS)
+                for (Item item : ItemRegistry.REGISTERED_SEEDS)
                     wheat.with(ItemEntry.builder(item));
 
                 supplier.pool(wheat);
