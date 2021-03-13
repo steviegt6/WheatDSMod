@@ -37,10 +37,10 @@ public class ItemRegistry {
      * Array of Padded Leather armor items.
      */
     public static final NamedDyeableArmorItem[] PADDED_WHEAT_SET = new NamedDyeableArmorItem[] {
-            new NamedDyeableArmorItem("padded_leather_helmet", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)),
-            new NamedDyeableArmorItem("padded_leather_chestplate", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)),
-            new NamedDyeableArmorItem("padded_leather_leggings", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.LEGS,new FabricItemSettings().group(ItemGroup.COMBAT)),
-            new NamedDyeableArmorItem("padded_leather_boots", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT))
+            new NamedDyeableArmorItem("padded_helmet", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)),
+            new NamedDyeableArmorItem("padded_chestplate", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)),
+            new NamedDyeableArmorItem("padded_leggings", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.LEGS,new FabricItemSettings().group(ItemGroup.COMBAT)),
+            new NamedDyeableArmorItem("padded_boots", WheatArmorMaterial.PADDED_LEATHER, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT))
     };
 
     public static final Item FLOUR = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
@@ -101,10 +101,10 @@ public class ItemRegistry {
             registerItem(item, item.getIdentifierName());
         }
 
-        registerItem(FLOUR, "flour");
-
         if (FabricLoader.getInstance().isModLoaded("patchouli"))
             registerItem(GUIDE_BOOK, "guide_book");
+
+        registerItem(FLOUR, "flour");
 
         try {
             ReflectionHelper.modifyInstanceField(Item.class, "foodComponent", Items.BREAD, new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build());

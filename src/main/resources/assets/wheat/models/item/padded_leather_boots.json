@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "wheat:item/padded_leather_boots",
-    "layer1": "wheat:item/padded_leather_boots_overlay"
-  }
-}

@@ -1,8 +1,8 @@
 {
-  "item.wheat.padded_leather_helmet": "Padded Leather Cap",
-  "item.wheat.padded_leather_chestplate": "Padded Leather Chestplate",
-  "item.wheat.padded_leather_leggings": "Padded Leather Pants",
-  "item.wheat.padded_leather_boots": "Padded Leather Boots",
+  "item.wheat.padded_helmet": "Padded Cap",
+  "item.wheat.padded_chestplate": "Padded Chestplate",
+  "item.wheat.padded_leggings": "Padded Pants",
+  "item.wheat.padded_boots": "Padded Boots",
 
   "item.wheat.coal_wheat": "Coal Wheat",
   "item.wheat.iron_ingot_wheat": "Iron Wheat",

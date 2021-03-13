@@ -1,6 +1,6 @@
 {
   "name": "Padded Armor",
-  "icon": "wheat:padded_leather_chestplate",
+  "icon": "wheat:padded_chestplate",
   "category": "introduction",
   "sortnum": 2,
   "pages": [
@@ -14,13 +14,13 @@
     },
     {
       "type": "crafting",
-      "recipe": "wheat:padded_leather_armor/padded_leather_helmet",
-      "recipe2": "wheat:padded_leather_armor/padded_leather_chestplate"
+      "recipe": "wheat:padded_armor/padded_helmet",
+      "recipe2": "wheat:padded_armor/padded_chestplate"
     },
     {
       "type": "crafting",
-      "recipe": "wheat:padded_leather_armor/padded_leather_leggings",
-      "recipe2": "wheat:padded_leather_armor/padded_leather_boots"
+      "recipe": "wheat:padded_armor/padded_leggings",
+      "recipe2": "wheat:padded_armor/padded_boots"
     }
   ]
 }

@@ -6,15 +6,15 @@
   "pages": [
     {
       "type": "text",
-      "text": "It's possible to find different kinds of wheat growing in village farms. However, this is rare, and particularly expensive wheats will never generate in villages."
+      "text": "The first way of obtaining different wheat seeds is to trade with farmer villagers. These trades are unlocked at higher levels of trading, and perhaps you may be lucky enough to score a good deal."
     },
     {
       "type": "text",
-      "text": "Another way of obtaining different wheat seeds is to trade with farmer villagers. These trades are unlocked at higher levels of trading, and perhaps you may be lucky enough to score a good deal."
+      "text": "Another way of getting your hands on wheat seeds is to explore jungles. Specifically, you may be able to find them inside chests within jungle temples."
     },
     {
       "type": "text",
-      "text": "The last way of naturally finding different wheat seeds is to explore the underground. You may find seeds inside chests scattered throughout dungeons and mineshafts."
+      "text": "The last way of naturally finding different wheat seeds is to venture underground. You may find them inside chests scattered throughout dungeons and mineshafts, but they will be rarer than being found in jungle temple chests."
     }
   ]
 }

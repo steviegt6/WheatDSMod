@@ -10,10 +10,10 @@
       "item": "minecraft:wheat"
     },
     "H": {
-      "item": "minecraft:leather_chestplate"
+      "item": "minecraft:leather_boots"
     }
   },
   "result": {
-    "item": "wheat:padded_leather_chestplate"
+    "item": "wheat:padded_boots"
   }
 }
