@@ -105,6 +105,7 @@ public class ItemRegistry {
             registerItem(GUIDE_BOOK, "guide_book");
 
         registerItem(FLOUR, "flour");
+        registerItem(BoneMealItem, "Golden Meal");
 
         try {
             ReflectionHelper.modifyInstanceField(Item.class, "foodComponent", Items.BREAD, new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build());
