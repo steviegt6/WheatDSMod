@@ -10,6 +10,7 @@
     "CropBlockMixin",
     "FarmerVillagerTaskMixin",
     "GatherItemsVillagerTaskMixin",
+    "HorseBaseEntityMixin",
     "ItemColorsMixin",
     "ItemEntityMixin",
     "LootManagerMixin",
