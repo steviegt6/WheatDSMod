@@ -18,7 +18,6 @@
     "RecipeManagerMixin",
     "ServerResourceManagerMixin",
     "SheepEntityMixin",
-    "TextureManagerMixin",
     "VillagerEntityMixin"
   ],
   "client": [
