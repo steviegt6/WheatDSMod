@@ -4,17 +4,19 @@
   "package": "io.github.steviegt6.wheatdsmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AnimalEntityMixin",
     "ArmorItemMixin",
+    "CowEntityMixin",
+    "CropBlockMixin",
     "FarmerVillagerTaskMixin",
     "GatherItemsVillagerTaskMixin",
     "ItemColorsMixin",
+    "ItemEntityMixin",
     "LootManagerMixin",
-    "VillagerEntityMixin",
-    "CropBlockMixin",
+    "PlayerEntityMixin",
     "RecipeManagerMixin",
     "ServerResourceManagerMixin",
-    "ItemEntityMixin",
-    "PlayerEntityMixin"
+    "VillagerEntityMixin"
   ],
   "client": [
   ],

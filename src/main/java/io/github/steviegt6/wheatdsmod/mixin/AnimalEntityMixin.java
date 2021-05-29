@@ -9,14 +9,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AnimalEntity.class)
-public class AnimalEntityMixin {
+public abstract class AnimalEntityMixin {
     @Inject(
             at = @At(value = "RETURN"),
             // <init> is the constructor of classes.
             method = "isBreedingItem",
             cancellable = true
     )
-    private void isBreedingItem(ItemStack stack, CallbackInfoReturnable<Boolean> ci) {
+    public void isBreedingItem(ItemStack stack, CallbackInfoReturnable<Boolean> ci) {
         if (ci.getReturnValue() && ItemRegistry.REGISTERED_CROPS.contains(stack.getItem()))
             ci.setReturnValue(true);
     }
