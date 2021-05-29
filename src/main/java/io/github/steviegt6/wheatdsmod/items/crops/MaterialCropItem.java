@@ -2,8 +2,8 @@ package io.github.steviegt6.wheatdsmod.items.crops;
 
 import io.github.steviegt6.wheatdsmod.items.Compostable;
 import io.github.steviegt6.wheatdsmod.items.NamedItem;
-import io.github.steviegt6.wheatdsmod.utilities.CropTier;
-import io.github.steviegt6.wheatdsmod.utilities.CropTiered;
+import io.github.steviegt6.wheatdsmod.utils.CropTier;
+import io.github.steviegt6.wheatdsmod.utils.CropTiered;
 
 public class MaterialCropItem extends NamedItem implements Compostable, CropTiered
 {

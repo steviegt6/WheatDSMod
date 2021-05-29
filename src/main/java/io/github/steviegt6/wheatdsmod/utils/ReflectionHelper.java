@@ -1,4 +1,4 @@
-package io.github.steviegt6.wheatdsmod.utilities;
+package io.github.steviegt6.wheatdsmod.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

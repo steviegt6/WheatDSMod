@@ -1,4 +1,4 @@
-package io.github.steviegt6.wheatdsmod.utilities;
+package io.github.steviegt6.wheatdsmod.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

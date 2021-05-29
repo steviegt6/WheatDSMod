@@ -1,6 +1,6 @@
 package io.github.steviegt6.wheatdsmod.mixin;
 
-import io.github.steviegt6.wheatdsmod.utilities.GuideBookReceiver;
+import io.github.steviegt6.wheatdsmod.utils.GuideBookReceiver;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import org.spongepowered.asm.mixin.Mixin;

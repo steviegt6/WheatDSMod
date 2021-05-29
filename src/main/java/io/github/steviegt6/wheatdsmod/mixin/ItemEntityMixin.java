@@ -3,7 +3,7 @@ package io.github.steviegt6.wheatdsmod.mixin;
 import io.github.steviegt6.wheatdsmod.items.AliasedCompostableBlockItem;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.registry.ItemRegistry;
-import io.github.steviegt6.wheatdsmod.utilities.GuideBookReceiver;
+import io.github.steviegt6.wheatdsmod.utils.GuideBookReceiver;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

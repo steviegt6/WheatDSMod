@@ -1,4 +1,4 @@
-package io.github.steviegt6.wheatdsmod.utilities;
+package io.github.steviegt6.wheatdsmod.utils;
 
 import io.github.steviegt6.wheatdsmod.WheatDSMod;
 import net.minecraft.util.Identifier;

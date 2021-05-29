@@ -2,7 +2,7 @@ package io.github.steviegt6.wheatdsmod.registry;
 
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
-import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
+import io.github.steviegt6.wheatdsmod.utils.WheatIdentifier;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Material;

@@ -2,7 +2,7 @@ package io.github.steviegt6.wheatdsmod.mixin;
 
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
 import io.github.steviegt6.wheatdsmod.registry.BlockRegistry;
-import io.github.steviegt6.wheatdsmod.utilities.CropTier;
+import io.github.steviegt6.wheatdsmod.utils.CropTier;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;

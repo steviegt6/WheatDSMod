@@ -2,10 +2,9 @@ package io.github.steviegt6.wheatdsmod.mixin;
 
 import com.google.gson.JsonElement;
 import io.github.steviegt6.wheatdsmod.blocks.MaterialCropBlock;
-import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
 import io.github.steviegt6.wheatdsmod.registry.BlockRegistry;
-import io.github.steviegt6.wheatdsmod.utilities.JsonGenerators;
-import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
+import io.github.steviegt6.wheatdsmod.utils.JsonGenerators;
+import io.github.steviegt6.wheatdsmod.utils.WheatIdentifier;
 import net.minecraft.loot.LootManager;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;

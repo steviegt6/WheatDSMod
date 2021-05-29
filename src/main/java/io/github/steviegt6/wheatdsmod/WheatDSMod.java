@@ -1,10 +1,9 @@
 package io.github.steviegt6.wheatdsmod;
 
-import io.github.steviegt6.wheatdsmod.items.crops.MaterialCropItem;
 import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
 import io.github.steviegt6.wheatdsmod.registry.ItemRegistry;
 import io.github.steviegt6.wheatdsmod.registry.RegistryManager;
-import io.github.steviegt6.wheatdsmod.utilities.WheatIdentifier;
+import io.github.steviegt6.wheatdsmod.utils.WheatIdentifier;
 import io.github.steviegt6.wheatdsmod.worldgen.VillageLootPool;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -12,7 +11,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import vazkii.patchouli.common.base.Patchouli;
 
 public class WheatDSMod implements ModInitializer {
     /**

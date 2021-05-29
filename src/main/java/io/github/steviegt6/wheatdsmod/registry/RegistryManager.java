@@ -2,7 +2,7 @@ package io.github.steviegt6.wheatdsmod.registry;
 
 import com.google.common.collect.ImmutableSet;
 import io.github.steviegt6.wheatdsmod.logging.WheatLogger;
-import io.github.steviegt6.wheatdsmod.utilities.ReflectionHelper;
+import io.github.steviegt6.wheatdsmod.utils.ReflectionHelper;
 import net.minecraft.entity.ai.brain.task.FarmerWorkTask;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Item;
