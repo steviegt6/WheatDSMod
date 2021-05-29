@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class AnimalEntityMixin {
     @Inject(
             at = @At(value = "RETURN"),
-            // <init> is the constructor of classes.
             method = "isBreedingItem",
             cancellable = true
     )

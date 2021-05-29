@@ -22,12 +22,11 @@ public abstract class SheepEntityMixin extends AnimalEntity {
 
     @Inject(
             at = @At(value = "TAIL"),
-            // <init> is the constructor of classes.
             method = "initGoals"
     )
     protected void initGoals(CallbackInfo ci) {
         for (Item item : ItemRegistry.REGISTERED_CROPS) {
-            // TODO: lmfao ofItems so like don't use a loop to add our items??
+            // TODO: lmao ofItems so like don't use a loop to add our items??
             goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(item), false));
         }
     }
