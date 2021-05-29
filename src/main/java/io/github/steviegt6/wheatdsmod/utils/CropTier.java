@@ -45,7 +45,7 @@ public class CropTier {
     }
 
     public static class Builder {
-        private Item material;
+        private final Item material;
         private Block conversionBlock;
         private float conversionChance;
         private float boneMealConversionFactor;

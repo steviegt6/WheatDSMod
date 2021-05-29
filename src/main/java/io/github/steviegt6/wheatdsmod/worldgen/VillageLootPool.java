@@ -8,7 +8,6 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import io.github.steviegt6.wheatdsmod.registry.ItemRegistry;
 
-
 public class VillageLootPool {
     public static void init() {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
