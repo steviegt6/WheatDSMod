@@ -9,15 +9,17 @@ public class CropTier {
     private final float conversionChance;
     private final float boneMealConversionFactor;
     private final float seedDupeChance;
+    private final float growthChance;
     private final boolean beeGrowable;
 
-    private CropTier(Item item, Block block, float chance, float boneMealFactor, float seedDuplicationChance, boolean beeGrown) {
-        material = item;
-        conversionBlock = block;
-        conversionChance = chance;
-        boneMealConversionFactor = boneMealFactor;
-        seedDupeChance = seedDuplicationChance;
-        beeGrowable = beeGrown;
+    private CropTier(Item material, Block conversionBlock, float conversionChance, float boneMealConversionFactor, float seedDupeChance, float growthChance, boolean beeGrowable) {
+        this.material = material;
+        this.conversionBlock = conversionBlock;
+        this.conversionChance = conversionChance;
+        this.boneMealConversionFactor = boneMealConversionFactor;
+        this.seedDupeChance = seedDupeChance;
+        this.growthChance = growthChance;
+        this.beeGrowable = beeGrowable;
     }
 
     public Item getMaterial() {
@@ -40,6 +42,10 @@ public class CropTier {
         return seedDupeChance;
     }
 
+    public float getGrowthChance() {
+        return growthChance;
+    }
+
     public boolean isBeeGrowable() {
         return beeGrowable;
     }
@@ -50,16 +56,18 @@ public class CropTier {
         private float conversionChance;
         private float boneMealConversionFactor;
         private float seedDupeChance;
+        private float growthChance;
         private boolean beeGrowable;
 
         public Builder(Item materialItem) {
             material = materialItem;
             boneMealConversionFactor = 1f;
+            growthChance = 1f;
             beeGrowable = true;
         }
 
         public CropTier build() {
-            return new CropTier(material, conversionBlock, conversionChance, boneMealConversionFactor, seedDupeChance, beeGrowable);
+            return new CropTier(material, conversionBlock, conversionChance, boneMealConversionFactor, seedDupeChance, growthChance, beeGrowable);
         }
 
         public Builder conversionBlock(Block block) {
@@ -79,6 +87,11 @@ public class CropTier {
 
         public Builder seedDupeChance(float chance) {
             seedDupeChance = chance;
+            return this;
+        }
+
+        public Builder growthChance(float chance) {
+            growthChance = chance;
             return this;
         }
 
