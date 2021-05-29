@@ -49,7 +49,7 @@ public class ItemRegistry {
         public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
             ItemStack stack = user.getStackInHand(hand);
 
-            if (user instanceof ServerPlayerEntity && WheatDSMod.PatchouliLoaded) {
+            if (user instanceof ServerPlayerEntity && WheatDSMod.getPatchouliLoaded()) {
                 ServerPlayerEntity player = (ServerPlayerEntity) user;
                 PatchouliAPI.get().openBookGUI(player, Registry.ITEM.getId(this));
             }

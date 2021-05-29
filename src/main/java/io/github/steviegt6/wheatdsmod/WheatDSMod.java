@@ -18,19 +18,15 @@ public class WheatDSMod implements ModInitializer {
      */
     public static final String MOD_ID = "wheat";
 
-    public static ItemGroup ItemGroup;
-
-    public static boolean PatchouliLoaded;
+    public static ItemGroup WheatTab;
 
     @Override
     public void onInitialize() {
         WheatLogger.info("Initializing wheat...");
 
-        PatchouliLoaded = FabricLoader.getInstance().isModLoaded("patchouli");
-
         RegistryManager.load();
 
-        ItemGroup = FabricItemGroupBuilder.create(new WheatIdentifier("wheat_tab"))
+        WheatTab = FabricItemGroupBuilder.create(new WheatIdentifier("wheat_tab"))
                 .icon(() -> new ItemStack(ItemRegistry.FLOUR))
                 .appendItems(stack -> {
                     for (Item item : ItemRegistry.REGISTERED_ITEMS)
@@ -40,5 +36,9 @@ public class WheatDSMod implements ModInitializer {
 
         WheatLogger.info("Initialized wheat!");
         VillageLootPool.init();
+    }
+
+    public static Boolean getPatchouliLoaded() {
+        return FabricLoader.getInstance().isModLoaded("patchouli");
     }
 }
