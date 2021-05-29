@@ -17,7 +17,7 @@ public abstract class AnimalEntityMixin {
             cancellable = true
     )
     public void isBreedingItem(ItemStack stack, CallbackInfoReturnable<Boolean> ci) {
-        if (ci.getReturnValue() && ItemRegistry.REGISTERED_CROPS.contains(stack.getItem()))
+        if (!ci.getReturnValue() && ItemRegistry.REGISTERED_CROPS.contains(stack.getItem()))
             ci.setReturnValue(true);
     }
 }
