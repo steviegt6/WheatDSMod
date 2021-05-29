@@ -34,8 +34,9 @@ public class WheatDSMod implements ModInitializer {
                 })
                 .build();
 
-        WheatLogger.info("Initialized wheat!");
         VillageLootPool.init();
+
+        WheatLogger.info("Initialized wheat!");
     }
 
     public static Boolean getPatchouliLoaded() {
