@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import vazkii.patchouli.api.PatchouliAPI;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -62,7 +63,7 @@ public class ItemRegistry {
      * An array of CropTiers that represent the different materials this mod will target.
      * Each element in this array will have crops auto-registered for it.
      */
-    public static final CropTier[] CROP_TIERS = new CropTier[] {
+    public static final List<CropTier> CROP_TIERS = new ArrayList<>(Arrays.asList(
             new CropTier.Builder(Items.COAL).conversionBlock(Blocks.COAL_BLOCK).conversionChance(0.005f).seedDupeChance(0.1f).growthChance(0.95f).build(),
             new CropTier.Builder(Items.IRON_INGOT).conversionBlock(Blocks.IRON_BLOCK).conversionChance(0.001f).seedDupeChance(0.03f).growthChance(0.9f).build(),
             new CropTier.Builder(Items.GOLD_INGOT).conversionBlock(Blocks.GOLD_BLOCK).conversionChance(0.0005f).seedDupeChance(0.01f).growthChance(0.8f).build(),
@@ -70,7 +71,7 @@ public class ItemRegistry {
             new CropTier.Builder(Items.LAPIS_LAZULI).conversionBlock(Blocks.LAPIS_BLOCK).conversionChance(0.0007f).seedDupeChance(0.015f).growthChance(0.8f).build(),
             new CropTier.Builder(Items.DIAMOND).conversionBlock(Blocks.DIAMOND_BLOCK).conversionChance(0.0001f).seedDupeChance(0.005f).growthChance(0.6f).build(),
             new CropTier.Builder(Items.NETHERITE_SCRAP).conversionBlock(Blocks.ANCIENT_DEBRIS).conversionChance(0.00001f).seedDupeChance(0.001f).growthChance(0.5f).build()
-    };
+    ));
 
     /**
      * A list that gets populated with every single item the mod has.
